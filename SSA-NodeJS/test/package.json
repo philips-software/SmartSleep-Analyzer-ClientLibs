@@ -1,0 +1,22 @@
+{
+  "name": "smartsleep-analyzer.test",
+  "version": "1.0.2-beta",
+  "description": "",
+  "main": "./Index.test.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "eslintConfig": {
+    "extends": "",
+    "env": {
+      "commonjs": true,
+      "node": true,
+      "mocha": true
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "arraylist": "^0.1.0"
+  }
+}

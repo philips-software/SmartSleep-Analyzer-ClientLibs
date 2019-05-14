@@ -1,0 +1,47 @@
+{
+  "name": "smartsleep-analyzer",
+  "version": "1.0.2-beta",
+  "description": "Provides an effective solution for sleep problems.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "lint": "eslint lib",
+    "test": "mocha"
+  },
+  "author": "Philips Sleep Companion",
+  "bugs": {
+    "email": "support@Philips.com"
+  },
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
+  },
+  "dependencies": {
+    "mocha": "^3.5.0",
+    "chai": "^4.2.0",
+    "moment": "^2.17.1",
+    "request": "^2.88.0"
+  },
+  "eslintConfig": {
+    "extends": "",
+    "env": {
+      "commonjs": true,
+      "node": true,
+      "mocha": true
+    },
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "no-underscore-dangle": 0,
+      "strict": 0,
+      "prefer-rest-params": 0
+    }
+  }
+}

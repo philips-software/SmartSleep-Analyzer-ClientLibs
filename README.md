@@ -6,7 +6,7 @@
 
 ## Requirements
 
-> This sample application assumes the following:
+> Development for this repo assumes the following:
 >* esversion 6
 >* node >= 8.9.4
 >* npm >= 5.6.0
