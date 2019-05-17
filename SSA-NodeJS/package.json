@@ -7,9 +7,9 @@
     "lint": "eslint lib",
     "test": "mocha"
   },
-  "author": "Philips Sleep Companion",
+  "author": "Philips",
   "bugs": {
-    "email": "support@Philips.com"
+    "email": "jesse.salazar@Philips.com"
   },
   "engines": {
     "node": ">=4.2.4"

@@ -2,39 +2,12 @@
 
 Provides an effective solution for sleep problems.
 
-## How to Build
-
-The generated SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies. If you don't already have NPM installed, please go ahead and follow instructions to install NPM from [here](https://nodejs.org/en/download/).
-The SDK also requires Node to be installed. If Node isn't already installed, please install it from [here](https://nodejs.org/en/download/)
-> NPM is installed by default when Node is installed
-
-To check if node and npm have been successfully installed, write the following commands in command prompt:
-
-* `node --version`
-* `npm -version`
-
-![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Philips%20Sleep%20Companion-Node)
-
-Now use npm to resolve all dependencies by running the following command in the root directory (of the SDK folder):
-
-```bash
-npm install
-```
-
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Philips%20Sleep%20Companion-Node)
-
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency2)
-
-This will install all dependencies in the `node_modules` folder.
-
-Once dependencies are resolved, you will need to move the folder `SmartSleepAnalyzer ` in to your `node_modules` folder.
-
 ## How to Use
 
 The following section explains how to use the library in a new project.
 
 ### 1. Open Project Folder
-Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
+Open an IDE/Text Editor for JavaScript.
 
 Click on `File` and select `Open Folder`.
 
@@ -49,7 +22,7 @@ Select the folder of your SDK and click on `Select Folder` to open it up in Subl
 Now right click on the folder name and select the `New File` option to create a new test file. Save it as `index.js` Now import the generated NodeJS library using the following lines of code:
 
 ```js
-var lib = require('lib');
+var lib = require('smartsleep-analyzer');
 ```
 
 Save changes.
@@ -87,7 +60,7 @@ Tests can be run in a number of ways:
 ### Method 3 (Run specific controller's tests)
 
 1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  Philips Sleep CompanionController`  to run all the tests in that controller file.
+2. Type `mocha  <TargetController>`  to run all the tests in that controller file.
 
 > To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
 
