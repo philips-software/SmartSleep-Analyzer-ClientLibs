@@ -2,34 +2,47 @@
 
 Provides an effective solution for sleep problems.
 
+## How to Build
+
+The generated SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies. If you don't already have NPM installed, please go ahead and follow instructions to install NPM from [here](https://nodejs.org/en/download/).
+The SDK also requires Node to be installed. If Node isn't already installed, please install it from [here](https://nodejs.org/en/download/)
+> NPM is installed by default when Node is installed
+
+To check if node and npm have been successfully installed, write the following commands in command prompt:
+
+* `node --version`
+* `npm -version`
+
+Now use npm to resolve all dependencies by running the following command in the root directory (of the SDK folder):
+
+```bash
+npm install
+```
+
+This will install all dependencies in the `node_modules` folder.
+
+Once dependencies are resolved, you will need to move the folder `SmartSleepAnalyzer ` in to your `node_modules` folder.
+
 ## How to Use
 
 The following section explains how to use the library in a new project.
 
 ### 1. Open Project Folder
-Open an IDE/Text Editor for JavaScript.
+Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
 
 Click on `File` and select `Open Folder`.
 
-![Open Folder](https://apidocs.io/illustration/nodejs?step=openFolder)
-
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
-
-![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Philips%20Sleep%20Companion-Node)
 
 ### 2. Creating a Test File
 
 Now right click on the folder name and select the `New File` option to create a new test file. Save it as `index.js` Now import the generated NodeJS library using the following lines of code:
 
 ```js
-var lib = require('smartsleep-analyzer');
+var lib = require('lib');
 ```
 
 Save changes.
-
-![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Philips%20Sleep%20Companion-Node)
-
-![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Philips%20Sleep%20Companion-Node)
 
 ### 3. Running The Test File
 
@@ -38,9 +51,6 @@ To run the `index.js` file, open up the command prompt and navigate to the Path 
 ```
 node index.js
 ```
-
-![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Philips%20Sleep%20Companion-Node)
-
 
 ## How to Test
 
@@ -60,11 +70,10 @@ Tests can be run in a number of ways:
 ### Method 3 (Run specific controller's tests)
 
 1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  <TargetController>`  to run all the tests in that controller file.
+2. Type `mocha  <Controller Name Here>`  to run all the tests in that controller file.
 
 > To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
 
-![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Philips%20Sleep%20CompanionController)
 
 ## Initialization
 
@@ -74,8 +83,6 @@ API client can be initialized as following:
 
 ```JavaScript
 const lib = require('lib');
-
-
 ```
 
 
@@ -96,7 +103,7 @@ const lib = require('lib');
 The singleton instance of the ``` ScoringController ``` class can be accessed from the API Client.
 
 ```javascript
-var controller = lib.ScoringController;
+var SSA_ClientLib = lib(_config.clientid,_config.secretKey);
 ```
 
 ### <a name="get_required_question_senses"></a>![Method: ](https://apidocs.io/img/method.png ".ScoringController.getRequiredQuestionSenses") getRequiredQuestionSenses
@@ -119,11 +126,12 @@ function getRequiredQuestionSenses(targetSenseId, locale)
 #### Example Usage
 
 ```javascript
+var targetSenseId = 'targetSenseId';
+var locale = 'locale';
 
-    var targetSenseId = 'targetSenseId';
-    var locale = 'locale';
-
-    controller.getRequiredQuestionSenses(targetSenseId, locale);
+SSA_ClientLib.ScoringController.getRequiredQuestionSenses(targetSenseId, locale).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -147,13 +155,11 @@ function getComputableSleepProblemSenses(senseIds)
 #### Example Usage
 
 ```javascript
+var senseIds = ['senseIds'];
 
-    var senseIds = ['senseIds'];
-
-    controller.getComputableSleepProblemSenses(senseIds, function(error, response, context) {
-
-    
-    });
+SSA_ClientLib.ScoringController.getComputableSleepProblemSenses(senseIds).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -177,10 +183,11 @@ function getComputableSenses(senseIds)
 #### Example Usage
 
 ```javascript
+var senseIds = ['senseIds'];
 
-    var senseIds = ['senseIds'];
-
-    controller.getComputableSenses(senseIds);
+SSA_ClientLib.ScoringController.getComputableSenses(senseIds).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -199,9 +206,9 @@ function getComputedSenses()
 #### Example Usage
 
 ```javascript
-
-
-    controller.getComputedSenses();
+SSA_ClientLib.ScoringController.getComputedSenses().then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -218,9 +225,9 @@ function getSleepProblemSenses()
 #### Example Usage
 
 ```javascript
-
-
-    controller.getSleepProblemSenses();
+SSA_ClientLib.ScoringController.getSleepProblemSenses().then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -246,10 +253,11 @@ function getQuestionSenses(locale)
 #### Example Usage
 
 ```javascript
+var locale = 'locale';
 
-    var locale = 'locale';
-
-    controller.getQuestionSenses(locale);
+SSA_ClientLib.ScoringController.getQuestionSenses(locale).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -273,10 +281,11 @@ function getAllSenses(locale)
 #### Example Usage
 
 ```javascript
+var locale = 'locale';
 
-    var locale = 'locale';
-
-    controller.getAllSenses(locale);
+SSA_ClientLib.ScoringController.getAllSenses(locale).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -301,11 +310,12 @@ function getSense(senseId, locale)
 #### Example Usage
 
 ```javascript
+var senseId = 'senseId';
+var locale = 'locale';
 
-    var senseId = 'senseId';
-    var locale = 'locale';
-
-    controller.getSense(senseId, locale);
+SSA_ClientLib.ScoringController.getSense(senseId, locale).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -329,12 +339,13 @@ function computeIntermediateAndSleepProblemSenses(inputValues)
 #### Example Usage
 
 ```javascript
+var inputValues = {
+    id : 21
+};
 
-    var inputValues = {
-        id : 21
-    };
-
-    controller.computeIntermediateAndSleepProblemSenses(inputValues);
+SSA_ClientLib.ScoringController.computeIntermediateAndSleepProblemSenses(inputValues).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -358,12 +369,13 @@ function computeSleepProblemSenses(inputValues)
 #### Example Usage
 
 ```javascript
+var inputValues = {
+    id : 21
+};
 
-    var inputValues = {
-        id : 21
-    };
-
-    controller.computeSleepProblemSenses(inputValues);
+SSA_ClientLib.ScoringController.computeSleepProblemSenses(inputValues).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -388,13 +400,14 @@ function computeSense(senseId, inputValues)
 #### Example Usage
 
 ```javascript
+var senseId = 'senseId';
+var inputValues = {
+    id : 21
+};
 
-    var senseId = 'senseId';
-    var inputValues = {
-        id : 21
-    };
-
-    controller.computeSense(senseId, inputValues);
+SSA_ClientLib.ScoringController.computeSense(senseId, inputValues).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -418,12 +431,13 @@ function computeAllSenses(inputValues)
 #### Example Usage
 
 ```javascript
+var inputValues = {
+    id : 21
+};
 
-    var inputValues = {
-        id : 21
-    };
-
-    controller.computeAllSenses(inputValues);
+SSA_ClientLib.ScoringController.computeSense(inputValues).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -437,7 +451,7 @@ function computeAllSenses(inputValues)
 The singleton instance of the ``` ResultController ``` class can be accessed from the API Client.
 
 ```javascript
-var controller = lib.ResultController;
+var SSA_ClientLib = lib(_config.clientid,_config.secretKey);
 ```
 
 ### <a name="get_tips_by_condition_and_input_values"></a>![Method: ](https://apidocs.io/img/method.png ".ResultController.getTipsByConditionAndInputValues") getTipsByConditionAndInputValues
@@ -460,13 +474,14 @@ function getTipsByConditionAndInputValues(conditionId, inputValues)
 #### Example Usage
 
 ```javascript
+var conditionId = 'conditionId';
+var inputValues = {
+    id : 21
+};
 
-    var conditionId = 'conditionId';
-    var inputValues = {
-        id : 21
-    };
-
-    controller.getTipsByConditionAndInputValues(conditionId, inputValues);
+SSA_ClientLib.ResultController.getTipsByConditionAndInputValues(conditionId, inputValues).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -491,13 +506,14 @@ function getTipIdsByConditionAndInputValues(conditionId, inputValues)
 #### Example Usage
 
 ```javascript
+var conditionId = 'conditionId';
+var inputValues = {
+    id : 21
+};
 
-    var conditionId = 'conditionId';
-    var inputValues = {
-        id : 21
-    };
-
-    controller.getTipIdsByConditionAndInputValues(conditionId, inputValues);
+SSA_ClientLib.ResultController.getTipIdsByConditionAndInputValues(conditionId, inputValues).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -521,10 +537,11 @@ function getTidbitIdsByCondition(conditionId)
 #### Example Usage
 
 ```javascript
+var conditionId = 'conditionId';
 
-    var conditionId = 'conditionId';
-
-    controller.getTidbitIdsByCondition(conditionId);
+SSA_ClientLib.ResultController.getTidbitIdsByCondition(conditionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -548,10 +565,11 @@ function getTipIdsByCondition(conditionId)
 #### Example Usage
 
 ```javascript
+var conditionId = 'conditionId';
 
-    var conditionId = 'conditionId';
-
-    controller.getTipIdsByCondition(conditionId);
+SSA_ClientLib.ResultController.getTipIdsByCondition(conditionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -575,10 +593,11 @@ function getCondition(conditionId)
 #### Example Usage
 
 ```javascript
+var conditionId = 'conditionId';
 
-    var conditionId = 'conditionId';
-
-    controller.getCondition(conditionId);
+SSA_ClientLib.ResultController.getCondition(conditionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -602,10 +621,11 @@ function submitTipFeedback(requestDTO)
 #### Example Usage
 
 ```javascript
+var requestDTO = new UpdateTipFeedbackRequestDTO({"key":"value"});
 
-    var requestDTO = new UpdateTipFeedbackRequestDTO({"key":"value"});
-
-    controller.submitTipFeedback(requestDTO);
+SSA_ClientLib.ResultController.submitTipFeedback(requestDTO).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -622,9 +642,9 @@ function getAllConditions()
 #### Example Usage
 
 ```javascript
-
-
-    controller.getAllConditions();
+SSA_ClientLib.ResultController.getAllConditions().then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -648,10 +668,11 @@ function submitConditionFeedback(requestDTO)
 #### Example Usage
 
 ```javascript
+var requestDTO = new UpdateConditionFeedbackRequestDTO({"key":"value"});
 
-    var requestDTO = new UpdateConditionFeedbackRequestDTO({"key":"value"});
-
-    controller.submitConditionFeedback(requestDTO);
+SSA_ClientLib.ResultController.submitConditionFeedback(requestDTO).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -676,11 +697,12 @@ function computeResult(surveyIdentifier, sessionId)
 #### Example Usage
 
 ```javascript
+var surveyIdentifier = 'surveyIdentifier';
+var sessionId = null; 
 
-    var surveyIdentifier = 'surveyIdentifier';
-    var sessionId = null; 
-
-    controller.computeResult(surveyIdentifier, sessionId);
+SSA_ClientLib.ResultController.submitConditionFeedback(surveyIdentifier, sessionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -694,7 +716,7 @@ function computeResult(surveyIdentifier, sessionId)
 The singleton instance of the ``` SessionController ``` class can be accessed from the API Client.
 
 ```javascript
-var controller = lib.SessionController;
+var SSA_ClientLib = lib(_config.clientid,_config.secretKey);
 ```
 
 ### <a name="activate_session"></a>![Method: ](https://apidocs.io/img/method.png ".SessionController.activateSession") activateSession
@@ -716,10 +738,11 @@ function activateSession(sessionDTO)
 #### Example Usage
 
 ```javascript
+var sessionDTO = new SessionDTO({"key":"value"});
 
-    var sessionDTO = new SessionDTO({"key":"value"});
-
-    controller.activateSession(sessionDTO);
+SSA_ClientLib.SessionController.activateSession(sessionDTO).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -736,9 +759,9 @@ function retrieveActivatedSession()
 #### Example Usage
 
 ```javascript
-
-
-    controller.retrieveActivatedSession();
+SSA_ClientLib.SessionController.retrieveActivatedSession().then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -755,9 +778,9 @@ function deactivateSession()
 #### Example Usage
 
 ```javascript
-
-
-    controller.deactivateSession();
+SSA_ClientLib.SessionController.deactivateSession().then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -781,10 +804,11 @@ function createSession(sessionDTO)
 #### Example Usage
 
 ```javascript
+var sessionDTO = new SessionDTO({"key":"value"});
 
-    var sessionDTO = new SessionDTO({"key":"value"});
-
-    controller.createSession(sessionDTO);
+SSA_ClientLib.SessionController.createSession(sessionDTO).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -798,7 +822,7 @@ function createSession(sessionDTO)
 The singleton instance of the ``` SurveyController ``` class can be accessed from the API Client.
 
 ```javascript
-var controller = lib.SurveyController;
+var SSA_ClientLib = lib(_config.clientid,_config.secretKey);
 ```
 
 ### <a name="reset_survey_state"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.resetSurveyState") resetSurveyState
@@ -821,10 +845,11 @@ function resetSurveyState(identifier)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
 
-    var identifier = 'identifier';
-
-    controller.resetSurveyState(identifier);
+SSA_ClientLib.SurveyController.resetSurveyState(identifier).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 ### <a name="get_survey_state"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.getSurveyState") getSurveyState
@@ -847,11 +872,12 @@ function getSurveyState(identifier, sessionId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var sessionId = null;
 
-    var identifier = 'identifier';
-    var sessionId = null;
-
-    controller.getSurveyState(identifier, sessionId);
+SSA_ClientLib.SurveyController.getSurveyState(identifier, sessionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 
@@ -878,12 +904,13 @@ function updateSurveyState(identifier, requestDTO, sessionId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var requestDTO = new UpdateSurveyStateRequestDTO({"key":"value"});
+var sessionId = null;
 
-    var identifier = 'identifier';
-    var requestDTO = new UpdateSurveyStateRequestDTO({"key":"value"});
-    var sessionId = null;
-
-    controller.updateSurveyState(identifier, requestDTO, sessionId);
+SSA_ClientLib.SurveyController.updateSurveyState(identifier, requestDTO, sessionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 ### <a name="get_sense_question"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.getSenseQuestion") getSenseQuestion
@@ -906,11 +933,12 @@ function getSenseQuestion(identifier, senseId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var senseId = 'height';
 
-    var identifier = 'identifier';
-    var senseId = 'height';
-
-    controller.getSenseQuestion(identifier, senseId);
+SSA_ClientLib.SurveyController.getSenseQuestion(identifier, senseId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 ### <a name="get_sense_required_questions"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.getSenseRequiredQuestions") getSenseRequiredQuestions
@@ -933,11 +961,12 @@ function getSenseRequiredQuestions(identifier, senseId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var senseId = 'height';
 
-    var identifier = 'identifier';
-    var senseId = 'height';
-
-    controller.getSenseRequiredQuestions(identifier, senseId);
+SSA_ClientLib.SurveyController.getSenseRequiredQuestions(identifier, senseId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 ### <a name="get_questions"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.getQuestions") getQuestions
@@ -963,12 +992,13 @@ function getQuestions(identifier, stepRef, sessionId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var stepRef = null;
+var sessionId = null;
 
-    var identifier = 'identifier';
-    var stepRef = null;
-    var sessionId = null;
-
-    controller.getQuestions(identifier, stepRef, sessionId);
+SSA_ClientLib.SurveyController.getSenseRequiredQuestions(identifier, stepRef, sessionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 ### <a name="post_answers"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.postAnswers") postAnswers
@@ -993,12 +1023,13 @@ function postAnswers(identifier, answers, sessionId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var answers={'demographics1':true};
+var sessionId = null;
 
-    var identifier = 'identifier';
-    var answers={'demographics1':true};
-    var sessionId = null;
-
-    controller.postAnswers(identifier, answers, sessionId);
+SSA_ClientLib.SurveyController.postAnswers(identifier, answers, sessionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 ### <a name="update_answers"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.updateAnswers") updateAnswers
@@ -1024,17 +1055,18 @@ function updateAnswers(identifier, updateSurveyStateRequestDTO, sessionId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var updateSurveyStateRequestDTO={
+    'stepRef': 'demographics1',
+    'answers': {
+    'demographics1':true,
+    }
+};
+var sessionId = null;
 
-    var identifier = 'identifier';
-    var requestDTO={
-        'stepRef': 'demographics1',
-        'answers': {
-          'demographics1':true,
-        }
-    };
-    var sessionId = null;
-
-    controller.updateAnswers(identifier, requestDTO, sessionId);
+SSA_ClientLib.SurveyController.postAnswers(identifier, updateSurveyStateRequestDTO, sessionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 ### <a name="get_survey_state_summary"></a>![Method: ](https://apidocs.io/img/method.png ".SurveyController.getSurveyStateSummary") getSurveyStateSummary
@@ -1057,11 +1089,12 @@ function getSurveyStateSummary(identifier, sessionId)
 #### Example Usage
 
 ```javascript
+var identifier = 'identifier';
+var sessionId = null;
 
-    var identifier = 'identifier';
-    var sessionId = null;
-
-    controller.getSurveyStateSummary(identifier, sessionId);
+SSA_ClientLib.SurveyController.getSurveyStateSummary(identifier, sessionId).then(function(result) {
+    //TODO Business Logic
+});
 ```
 
 

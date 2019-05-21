@@ -9,21 +9,13 @@ and Apache HttpClient. The reference to these dependencies is already
 added in the pom.xml file will be installed automatically. Therefore,
 you will need internet access for a successful build.
 
-* In order to open the client library in Eclipse click on ``` File -> Import ```.
+1. In order to open the client library in Eclipse click on ``` File -> Import ```.
 
-![Importing SDK into Eclipse - Step 1](https://apidocs.io/illustration/java?step=import0&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
+2. In the import dialog, select ``` Existing Java Project ``` and click ``` Next ```.
 
-* In the import dialog, select ``` Existing Java Project ``` and click ``` Next ```.
+3. Browse to locate the folder containing the source code. Select the detected location of the project and click ``` Finish ```.
 
-![Importing SDK into Eclipse - Step 2](https://apidocs.io/illustration/java?step=import1&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
-
-* Browse to locate the folder containing the source code. Select the detected location of the project and click ``` Finish ```.
-
-![Importing SDK into Eclipse - Step 3](https://apidocs.io/illustration/java?step=import2&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
-
-* Upon successful import, the project will be automatically built by Eclipse after automatically resolving the dependencies.
-
-![Importing SDK into Eclipse - Step 4](https://apidocs.io/illustration/java?step=import3&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
+4. Upon successful import, the project will be automatically built by Eclipse after automatically resolving the dependencies.
 
 ## How to Use
 
@@ -33,40 +25,24 @@ The following section explains how to use the SmartSleepAnalyzer library in a ne
 
 For starting a new project, click the menu command ``` File > New > Project ```.
 
-![Add a new project in Eclipse](https://apidocs.io/illustration/java?step=createNewProject0&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
-
 Next, choose ``` Maven > Maven Project ```and click ``` Next ```.
-
-![Create a new Maven Project - Step 1](https://apidocs.io/illustration/java?step=createNewProject1&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
 
 Here, make sure to use the current workspace by choosing ``` Use default Workspace location ```, as shown in the picture below and click ``` Next ```.
 
-![Create a new Maven Project - Step 2](https://apidocs.io/illustration/java?step=createNewProject2&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
-
 Following this, select the *quick start* project type to create a simple project with an existing class and a ``` main ``` method. To do this, choose ``` maven-archetype-quickstart ``` item from the list and click ``` Next ```.
 
-![Create a new Maven Project - Step 3](https://apidocs.io/illustration/java?step=createNewProject3&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
-
 In the last step, provide a ``` Group Id ``` and ``` Artifact Id ``` as shown in the picture below and click ``` Finish ```.
-
-![Create a new Maven Project - Step 4](https://apidocs.io/illustration/java?step=createNewProject4&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
 
 ### 2. Add reference of the library project
 
 The created Maven project manages its dependencies using its ``` pom.xml ``` file. In order to add a dependency on the *SmartSleepAnalyzer* client library, double click on the ``` pom.xml ``` file in the ``` Package Explorer ```. Opening the ``` pom.xml ``` file will render a graphical view on the cavas. Here, switch to the ``` Dependencies ``` tab and click the ``` Add ``` button as shown in the picture below.
 
-![Adding dependency to the client library - Step 1](https://apidocs.io/illustration/java?step=testProject0&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
-
 Clicking the ``` Add ``` button will open a dialog where you need to specify SmartSleepAnalyzer in ``` Group Id ``` and SmartSleepAnalyzer in the ``` Artifact Id ``` fields. Once added click ``` OK ```. Save the ``` pom.xml ``` file.
-
-![Adding dependency to the client library - Step 2](https://apidocs.io/illustration/java?step=testProject1&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
 
 ### 3. Write sample code
 
 Once the ``` SimpleConsoleApp ``` is created, a file named ``` App.java ``` will be visible in the *Package Explorer* with a ``` main ``` method. This is the entry point for the execution of the created project.
 Here, you can add code to initialize the client library and instantiate a *Controller* class. Sample code to initialize the client library and using controller methods is given in the subsequent sections.
-
-![Adding dependency to the client library - Step 2](https://apidocs.io/illustration/java?step=testProject2&workspaceFolder=Philips%20Sleep%20Companion-Java&workspaceName=SmartSleepAnalyzer&projectName=SmartSleepAnalyzer&rootNamespace=com.example.www)
 
 ## How to Test
 
@@ -99,7 +75,7 @@ SmartSleepAnalyzerClient client = new SmartSleepAnalyzerClient();
 * [SessionController](#session_controller)
 * [SurveyController](#survey_controller)
 
-## <a name="scoring_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.example.www.controllers.ScoringController") ScoringController
+## <a name="scoring_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.philips.ai.controllers.ScoringController") ScoringController
 
 ### Get singleton instance
 
@@ -109,7 +85,7 @@ The singleton instance of the ``` ScoringController ``` class can be accessed fr
 ScoringController scoring = client.getScoring();
 ```
 
-### <a name="get_required_question_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.getRequiredQuestionSensesAsync") getRequiredQuestionSensesAsync
+### <a name="get_required_question_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getRequiredQuestionSensesAsync") getRequiredQuestionSensesAsync
 
 > Returns all question senses required to compute the target sense.
 
@@ -147,7 +123,7 @@ scoring.getRequiredQuestionSensesAsync(targetSenseId, locale, new APICallBack<Li
 ```
 
 
-### <a name="create_get_computable_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.createGetComputableSleepProblemSensesAsync") createGetComputableSleepProblemSensesAsync
+### <a name="create_get_computable_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createGetComputableSleepProblemSensesAsync") createGetComputableSleepProblemSensesAsync
 
 > Returns all sleep problem senses which can be computed from the given input sense ids.
 
@@ -186,7 +162,7 @@ try {
 ```
 
 
-### <a name="create_get_computable_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.createGetComputableSensesAsync") createGetComputableSensesAsync
+### <a name="create_get_computable_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createGetComputableSensesAsync") createGetComputableSensesAsync
 
 > Returns all senses which can be computed from the given input sense ids.
 
@@ -225,7 +201,7 @@ try {
 ```
 
 
-### <a name="get_computed_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.getComputedSensesAsync") getComputedSensesAsync
+### <a name="get_computed_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getComputedSensesAsync") getComputedSensesAsync
 
 > Returns metadata information about all computed senses. Computed senses are derived from other senses and should
 > 
@@ -252,7 +228,7 @@ scoring.getComputedSensesAsync(new APICallBack<List<SenseDTO>>() {
 ```
 
 
-### <a name="get_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.getSleepProblemSensesAsync") getSleepProblemSensesAsync
+### <a name="get_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getSleepProblemSensesAsync") getSleepProblemSensesAsync
 
 > Returns metadata information about all sleep problem senses.
 
@@ -277,7 +253,7 @@ scoring.getSleepProblemSensesAsync(new APICallBack<List<SenseDTO>>() {
 ```
 
 
-### <a name="get_question_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.getQuestionSensesAsync") getQuestionSensesAsync
+### <a name="get_question_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getQuestionSensesAsync") getQuestionSensesAsync
 
 > Returns metadata information about all question senses. Question senses are simple value senses which can be asked
 > 
@@ -314,7 +290,7 @@ scoring.getQuestionSensesAsync(locale, new APICallBack<List<SenseDTO>>() {
 ```
 
 
-### <a name="get_all_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.getAllSensesAsync") getAllSensesAsync
+### <a name="get_all_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getAllSensesAsync") getAllSensesAsync
 
 > Returns metadata information about all available senses.
 
@@ -349,7 +325,7 @@ scoring.getAllSensesAsync(locale, new APICallBack<List<SenseDTO>>() {
 ```
 
 
-### <a name="get_sense_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.getSenseAsync") getSenseAsync
+### <a name="get_sense_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getSenseAsync") getSenseAsync
 
 > Returns metadata information about a single sense.
 
@@ -387,7 +363,7 @@ scoring.getSenseAsync(senseId, locale, new APICallBack<SenseDTO>() {
 ```
 
 
-### <a name="create_compute_intermediate_and_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.createComputeIntermediateAndSleepProblemSensesAsync") createComputeIntermediateAndSleepProblemSensesAsync
+### <a name="create_compute_intermediate_and_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeIntermediateAndSleepProblemSensesAsync") createComputeIntermediateAndSleepProblemSensesAsync
 
 > Computes the values of all possible intermediate and sleep problem senses based on the provided input values.
 
@@ -426,7 +402,7 @@ try {
 ```
 
 
-### <a name="create_compute_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.createComputeSleepProblemSensesAsync") createComputeSleepProblemSensesAsync
+### <a name="create_compute_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeSleepProblemSensesAsync") createComputeSleepProblemSensesAsync
 
 > Computes the values of all possible sleep problem senses based on the provided input values.
 
@@ -465,7 +441,7 @@ try {
 ```
 
 
-### <a name="create_compute_sense_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.createComputeSenseAsync") createComputeSenseAsync
+### <a name="create_compute_sense_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeSenseAsync") createComputeSenseAsync
 
 > Computes the value of a single sense based on the provided input values.
 
@@ -507,7 +483,7 @@ try {
 ```
 
 
-### <a name="create_compute_all_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ScoringController.createComputeAllSensesAsync") createComputeAllSensesAsync
+### <a name="create_compute_all_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeAllSensesAsync") createComputeAllSensesAsync
 
 > Computes the values of all possible senses based on the provided input values.
 
@@ -548,7 +524,7 @@ try {
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="result_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.example.www.controllers.ResultController") ResultController
+## <a name="result_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.philips.ai.controllers.ResultController") ResultController
 
 ### Get singleton instance
 
@@ -558,7 +534,7 @@ The singleton instance of the ``` ResultController ``` class can be accessed fro
 ResultController result = client.getResult();
 ```
 
-### <a name="create_get_tips_by_condition_and_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.createGetTipsByConditionAndInputValuesAsync") createGetTipsByConditionAndInputValuesAsync
+### <a name="create_get_tips_by_condition_and_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTipsByConditionAndInputValuesAsync") createGetTipsByConditionAndInputValuesAsync
 
 > Computes and returns all tips that would be associated with the given condition, based on the given input values.
 
@@ -600,7 +576,7 @@ try {
 ```
 
 
-### <a name="create_get_tip_ids_by_condition_and_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.createGetTipIdsByConditionAndInputValuesAsync") createGetTipIdsByConditionAndInputValuesAsync
+### <a name="create_get_tip_ids_by_condition_and_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTipIdsByConditionAndInputValuesAsync") createGetTipIdsByConditionAndInputValuesAsync
 
 > Computes and returns the ids of all tips that would be associated with the given condition, based on the given
 > 
@@ -644,7 +620,7 @@ try {
 ```
 
 
-### <a name="create_get_tidbit_ids_by_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.createGetTidbitIdsByConditionAsync") createGetTidbitIdsByConditionAsync
+### <a name="create_get_tidbit_ids_by_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTidbitIdsByConditionAsync") createGetTidbitIdsByConditionAsync
 
 > Returns the ids of all tidbits that could be associated with the given condition.
 
@@ -679,7 +655,7 @@ result.createGetTidbitIdsByConditionAsync(conditionId, new APICallBack<List<Stri
 ```
 
 
-### <a name="create_get_tip_ids_by_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.createGetTipIdsByConditionAsync") createGetTipIdsByConditionAsync
+### <a name="create_get_tip_ids_by_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTipIdsByConditionAsync") createGetTipIdsByConditionAsync
 
 > Returns the ids of all tips that could be associated with the given condition.
 
@@ -714,7 +690,7 @@ result.createGetTipIdsByConditionAsync(conditionId, new APICallBack<List<String>
 ```
 
 
-### <a name="create_get_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.createGetConditionAsync") createGetConditionAsync
+### <a name="create_get_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetConditionAsync") createGetConditionAsync
 
 > Returns metadata information about an single condition.
 
@@ -749,7 +725,7 @@ result.createGetConditionAsync(conditionId, new APICallBack<ConditionResult>() {
 ```
 
 
-### <a name="create_submit_tip_feedback_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.createSubmitTipFeedbackAsync") createSubmitTipFeedbackAsync
+### <a name="create_submit_tip_feedback_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createSubmitTipFeedbackAsync") createSubmitTipFeedbackAsync
 
 > Submits feedback for an end-user on the indicated tip.
 
@@ -788,7 +764,7 @@ try {
 ```
 
 
-### <a name="get_all_conditions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.getAllConditionsAsync") getAllConditionsAsync
+### <a name="get_all_conditions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getAllConditionsAsync") getAllConditionsAsync
 
 > Returns metadata information about all available conditions.
 
@@ -813,7 +789,7 @@ result.getAllConditionsAsync(new APICallBack<List<ConditionResult>>() {
 ```
 
 
-### <a name="create_submit_condition_feedback_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.createSubmitConditionFeedbackAsync") createSubmitConditionFeedbackAsync
+### <a name="create_submit_condition_feedback_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createSubmitConditionFeedbackAsync") createSubmitConditionFeedbackAsync
 
 > Submits feedback for an end-user on the indicated condition.
 
@@ -852,7 +828,7 @@ try {
 ```
 
 
-### <a name="get_compute_result_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.ResultController.getComputeResultAsync") getComputeResultAsync
+### <a name="get_compute_result_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getComputeResultAsync") getComputeResultAsync
 
 > Computes Results output for the given survey.
 
@@ -889,7 +865,7 @@ result.getComputeResultAsync(surveyIdentifier, new APICallBack<ResultDTO>() {
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="session_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.example.www.controllers.SessionController") SessionController
+## <a name="session_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.philips.ai.controllers.SessionController") SessionController
 
 ### Get singleton instance
 
@@ -899,7 +875,7 @@ The singleton instance of the ``` SessionController ``` class can be accessed fr
 SessionController session = client.getSession();
 ```
 
-### <a name="create_login_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SessionController.createLoginAsync") createLoginAsync
+### <a name="create_login_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.createLoginAsync") createLoginAsync
 
 > Activates a session.
 
@@ -938,7 +914,7 @@ try {
 ```
 
 
-### <a name="retrieve_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SessionController.retrieveAsync") retrieveAsync
+### <a name="retrieve_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.retrieveAsync") retrieveAsync
 
 > Retrieves the details of the activated session.
 
@@ -963,7 +939,7 @@ session.retrieveAsync(new APICallBack<SessionDTO>() {
 ```
 
 
-### <a name="get_logout_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SessionController.getLogoutAsync") getLogoutAsync
+### <a name="get_logout_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.getLogoutAsync") getLogoutAsync
 
 > Deactivates the current session.
 
@@ -988,7 +964,7 @@ session.getLogoutAsync(new APICallBack<void>() {
 ```
 
 
-### <a name="create_activate_session_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SessionController.createRegisterUserAsync") createRegisterUserAsync
+### <a name="create_activate_session_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.createRegisterUserAsync") createRegisterUserAsync
 
 > Creates a new session with the provided information.
 
@@ -1029,7 +1005,7 @@ try {
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="survey_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.example.www.controllers.SurveyController") SurveyController
+## <a name="survey_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.philips.ai.controllers.SurveyController") SurveyController
 
 ### Get singleton instance
 
@@ -1039,7 +1015,7 @@ The singleton instance of the ``` SurveyController ``` class can be accessed fro
 SurveyController survey = client.getSurvey();
 ```
 
-### <a name="get_matched_rules_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SurveyController.getMatchedRulesAsync") getMatchedRulesAsync
+### <a name="get_matched_rules_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getMatchedRulesAsync") getMatchedRulesAsync
 
 > DEVELOPMENT ONLY: Returns all rules which were matched in the computation of the session's survey state. This API is
 > 
@@ -1076,7 +1052,7 @@ survey.getMatchedRulesAsync(identifier, new APICallBack<void>() {
 ```
 
 
-### <a name="post_survey_answers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SurveyController.postSurveyAnswersAsync") postSurveyAnswersAsync
+### <a name="post_survey_answers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.postSurveyAnswersAsync") postSurveyAnswersAsync
 
 > DEVELOPMENT ONLY: Updates all answers stored for a session for a survey to the given set of answers. This API is only
 > 
@@ -1124,7 +1100,7 @@ try {
 ```
 
 
-### <a name="get_sense_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SurveyController.getSenseInputValuesAsync") getSenseInputValuesAsync
+### <a name="get_sense_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSenseInputValuesAsync") getSenseInputValuesAsync
 
 > DEVELOPMENT ONLY: Similar to the GET /answers API, but instead returns answers mapped to their corresponding sense
 > 
@@ -1163,7 +1139,7 @@ survey.getSenseInputValuesAsync(identifier, new APICallBack<void>() {
 ```
 
 
-### <a name="create_reset_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SurveyController.createResetSurveyStateAsync") createResetSurveyStateAsync
+### <a name="create_reset_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.createResetSurveyStateAsync") createResetSurveyStateAsync
 
 > Resets the state of the survey for the current session. In other words, all the session's answers are removed and the
 > 
@@ -1200,7 +1176,7 @@ survey.createResetSurveyStateAsync(identifier, new APICallBack<void>() {
 ```
 
 
-### <a name="get_survey_answers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SurveyController.getSurveyAnswersAsync") getSurveyAnswersAsync
+### <a name="get_survey_answers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSurveyAnswersAsync") getSurveyAnswersAsync
 
 > DEVELOPMENT ONLY: Gets all answers stored for a session for a given survey. This API is only available in development
 > 
@@ -1239,7 +1215,7 @@ survey.getSurveyAnswersAsync(identifier, new APICallBack<void>() {
 ```
 
 
-### <a name="get_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SurveyController.getSurveyStateAsync") getSurveyStateAsync
+### <a name="get_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSurveyStateAsync") getSurveyStateAsync
 
 > Retrieves the state of a survey for the current session.
 
@@ -1274,7 +1250,7 @@ survey.getSurveyStateAsync(identifier, new APICallBack<SurveyStateDTO>() {
 ```
 
 
-### <a name="update_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.example.www.controllers.SurveyController.updateSurveyStateAsync") updateSurveyStateAsync
+### <a name="update_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.updateSurveyStateAsync") updateSurveyStateAsync
 
 > Updates the state of a survey for the current session, and returns the portion of the survey state necessary for the
 > 
