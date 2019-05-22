@@ -1,6 +1,6 @@
 {
   "name": "smartsleep-analyzer",
-  "version": "1.0.5-beta",
+  "version": "1.0.6-beta",
   "description": "Provides an effective solution for sleep problems.",
   "main": "./lib/index.js",
   "scripts": {
