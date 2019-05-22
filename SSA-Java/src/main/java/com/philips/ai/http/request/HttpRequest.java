@@ -8,8 +8,6 @@ package com.philips.ai.http.request;
 import java.util.Map;
 import java.util.AbstractMap.SimpleEntry;
 
-import com.philips.ai.http.request.HttpMethod;
-
 import java.util.List;
 
 public class HttpRequest {
@@ -20,7 +18,7 @@ public class HttpRequest {
     private Map<String, String> headers;
     private String queryUrl;
     private List<SimpleEntry<String, Object>> parameters;
-    private String sessionkey;
+    private String username;
     private String password;
 
     /**
@@ -52,14 +50,14 @@ public class HttpRequest {
     }
 
     /**
-     * Username for basic authentication
+     * Username for basic auth
      */
-    public String getSessionname() {
-        return sessionkey;
+    public String getUsername() {
+        return username;
     }
 
     /**
-     * Password for basic authentication
+     * Password for basic auth
      */
     public String getPassword() {
         return password;
@@ -89,15 +87,15 @@ public class HttpRequest {
      * @param _queryUrl   The http url to create the HTTP Request. Expect a fully qualified absolute Url
      * @param _headers    The key-value map of all http headers to be sent
      * @param _parameters The form data values in a key-value map
-     * @param _sessionkey   Username for basic authentication
-     * @param _password   Password for basic authentication
+     * @param username    username for basic authentication
+     * @param password    password for basic authentication
      * @return Http request initialized with the given method, url and headers
      */
     public HttpRequest(HttpMethod _method, String _queryUrl,
                        Map<String, String> _headers, List<SimpleEntry<String, Object>> _parameters,
-                       String _sessionkey, String _password) {
+                       String username, String password) {
         this(_method, _queryUrl, _headers, _parameters);
-        this.sessionkey = _sessionkey;
-        this.password = _password;
+        this.username = username;
+        this.password = password;
     }
 }

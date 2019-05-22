@@ -22,7 +22,7 @@ public class QuestionsDTO
     private UpdateSurveyStateRequestDTO updateAnswersTemplate;
 
     /** GETTER
-     * Session id associate with the user survey interaction.
+     * Session id associated with the survey interaction.
      */
     @JsonGetter("sessionId")
     public String getSessionId ( ) {
@@ -30,7 +30,7 @@ public class QuestionsDTO
     }
 
     /** SETTER
-     * Session id associate with the user survey interaction.
+     * Session id associated with the survey interaction.
      */
     @JsonSetter("sessionId")
     public void setSessionId (String value) {

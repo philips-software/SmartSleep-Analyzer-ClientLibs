@@ -251,8 +251,8 @@ public class OkClient implements HttpClient {
         }
 
         // set basic auth credentials if needed
-        if ((null != httpRequest.getSessionname()) && (!httpRequest.getSessionname().isEmpty())) {
-            String credentials = okhttp3.Credentials.basic(httpRequest.getSessionname(), httpRequest.getPassword());
+        if ((null != httpRequest.getUsername()) && (!httpRequest.getUsername().isEmpty())) {
+            String credentials = okhttp3.Credentials.basic(httpRequest.getUsername(), httpRequest.getPassword());
             requestHeaders.add("Authorization", credentials);
         }
 
@@ -268,8 +268,8 @@ public class OkClient implements HttpClient {
      * Create a simple HTTP GET request with basic authentication
      */
     public HttpRequest get(String _queryUrl, Map<String, String> _headers,
-            List<SimpleEntry<String, Object>> _parameters, String _sessionname, String _password) {
-        return new HttpRequest(HttpMethod.GET, _queryUrl, _headers, _parameters, _sessionname, _password);
+            List<SimpleEntry<String, Object>> _parameters, String _username, String _password) {
+        return new HttpRequest(HttpMethod.GET, _queryUrl, _headers, _parameters, _username, _password);
     }
 
     /**
@@ -284,8 +284,8 @@ public class OkClient implements HttpClient {
      * Create a simple HTTP HEAD request with basic authentication
      */
     public HttpRequest head(String _queryUrl, Map<String, String> _headers,
-            List<SimpleEntry<String, Object>> _parameters, String _sessionname, String _password) {
-        return new HttpRequest(HttpMethod.HEAD, _queryUrl, _headers, _parameters, _sessionname, _password);
+            List<SimpleEntry<String, Object>> _parameters, String _username, String _password) {
+        return new HttpRequest(HttpMethod.HEAD, _queryUrl, _headers, _parameters, _username, _password);
     }
 
     /**
@@ -308,8 +308,8 @@ public class OkClient implements HttpClient {
      * Create an HTTP POST request with parameters and with basic authentication
      */
     public HttpRequest post(String _queryUrl, Map<String, String> _headers,
-            List<SimpleEntry<String, Object>> _parameters, String _sessionname, String _password) {
-        return new HttpRequest(HttpMethod.POST, _queryUrl, _headers, _parameters, _sessionname, _password);
+            List<SimpleEntry<String, Object>> _parameters, String _username, String _password) {
+        return new HttpRequest(HttpMethod.POST, _queryUrl, _headers, _parameters, _username, _password);
     }
 
     /**
@@ -322,9 +322,9 @@ public class OkClient implements HttpClient {
     /**
      * Create an HTTP POST request with body and with basic authentication
      */
-    public HttpBodyRequest postBody(String _queryUrl, Map<String, String> _headers, String _body, String _sessionname,
+    public HttpBodyRequest postBody(String _queryUrl, Map<String, String> _headers, String _body, String _username,
             String _password) {
-        return new HttpBodyRequest(HttpMethod.POST, _queryUrl, _headers, _body, _sessionname, _password);
+        return new HttpBodyRequest(HttpMethod.POST, _queryUrl, _headers, _body, _username, _password);
     }
 
     /**
@@ -339,8 +339,8 @@ public class OkClient implements HttpClient {
      * Create an HTTP PUT request with parameters and with basic authentication
      */
     public HttpRequest put(String _queryUrl, Map<String, String> _headers,
-            List<SimpleEntry<String, Object>> _parameters, String _sessionname, String _password) {
-        return new HttpRequest(HttpMethod.PUT, _queryUrl, _headers, _parameters, _sessionname, _password);
+            List<SimpleEntry<String, Object>> _parameters, String _username, String _password) {
+        return new HttpRequest(HttpMethod.PUT, _queryUrl, _headers, _parameters, _username, _password);
     }
 
     /**
@@ -353,9 +353,9 @@ public class OkClient implements HttpClient {
     /**
      * Create an HTTP PUT request with body and with basic authentication
      */
-    public HttpBodyRequest putBody(String _queryUrl, Map<String, String> _headers, String _body, String _sessionname,
+    public HttpBodyRequest putBody(String _queryUrl, Map<String, String> _headers, String _body, String _username,
             String _password) {
-        return new HttpBodyRequest(HttpMethod.PUT, _queryUrl, _headers, _body, _sessionname, _password);
+        return new HttpBodyRequest(HttpMethod.PUT, _queryUrl, _headers, _body, _username, _password);
     }
 
     /**
@@ -371,8 +371,8 @@ public class OkClient implements HttpClient {
      * authentication
      */
     public HttpRequest patch(String _queryUrl, Map<String, String> _headers,
-            List<SimpleEntry<String, Object>> _parameters, String _sessionname, String _password) {
-        return new HttpRequest(HttpMethod.PATCH, _queryUrl, _headers, _parameters, _sessionname, _password);
+            List<SimpleEntry<String, Object>> _parameters, String _username, String _password) {
+        return new HttpRequest(HttpMethod.PATCH, _queryUrl, _headers, _parameters, _username, _password);
     }
 
     /**
@@ -385,9 +385,9 @@ public class OkClient implements HttpClient {
     /**
      * Create an HTTP PATCH request with body and with basic authentication
      */
-    public HttpBodyRequest patchBody(String _queryUrl, Map<String, String> _headers, String _body, String _sessionname,
+    public HttpBodyRequest patchBody(String _queryUrl, Map<String, String> _headers, String _body, String _username,
             String _password) {
-        return new HttpBodyRequest(HttpMethod.PATCH, _queryUrl, _headers, _body, _sessionname, _password);
+        return new HttpBodyRequest(HttpMethod.PATCH, _queryUrl, _headers, _body, _username, _password);
     }
 
     /**
@@ -403,8 +403,8 @@ public class OkClient implements HttpClient {
      * authentication
      */
     public HttpRequest delete(String _queryUrl, Map<String, String> _headers,
-            List<SimpleEntry<String, Object>> _parameters, String _sessionname, String _password) {
-        return new HttpRequest(HttpMethod.DELETE, _queryUrl, _headers, _parameters, _sessionname, _password);
+            List<SimpleEntry<String, Object>> _parameters, String _username, String _password) {
+        return new HttpRequest(HttpMethod.DELETE, _queryUrl, _headers, _parameters, _username, _password);
     }
 
     /**
@@ -417,9 +417,9 @@ public class OkClient implements HttpClient {
     /**
      * Create an HTTP DELETE request with body and with basic authentication
      */
-    public HttpBodyRequest deleteBody(String _queryUrl, Map<String, String> _headers, String _body, String _sessionname,
+    public HttpBodyRequest deleteBody(String _queryUrl, Map<String, String> _headers, String _body, String _username,
             String _password) {
-        return new HttpBodyRequest(HttpMethod.DELETE, _queryUrl, _headers, _body, _sessionname, _password);
+        return new HttpBodyRequest(HttpMethod.DELETE, _queryUrl, _headers, _body, _username, _password);
     }
 
 }

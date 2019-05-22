@@ -1,9 +1,9 @@
-const lib = require('smartsleep-analyzer');
+const lib = require('../lib/index.js');
 const expect = require('chai').expect;
 const _config = require('./Configuration');
 
 let SSA_ClientLib = null
-const defaultErrorMessage = '00000:Please verify the provided information is correct.!';
+const defaultErrorMessage = '00000:Please verify the provided information is correct.';
 
 var computeSensepara = {
   'height': 135,
@@ -140,16 +140,16 @@ describe('Scoring Controller Test Cases', function(){
     'impactWorrying': 'worrieddistressedbarely', 'impactInterfering': 'interferingbarely'
   }
 
-  it('computeIntermediateAndSleepProblemSenses Invalid Test case', function(done){
+  it('computeIntermediateAndSleepProblemSenses Invalid Test case 1', function(done){
     SSA_ClientLib.ScoringController.computeIntermediateAndSleepProblemSenses(css_para_invalid).then(function(result) {
       expect(result.errorMessage).to.equal('{"faultCode":"2124","message":"Invalid sense id \'abc\'"}');
       done();
     }).catch(done);
   })
 
-  it('computeIntermediateAndSleepProblemSenses Invalid Test case', function(done){
+  it('computeIntermediateAndSleepProblemSenses Invalid Test case 2', function(done){
     SSA_ClientLib.ScoringController.computeIntermediateAndSleepProblemSenses('').then(function(result) {
-      expect(result.errorMessage).to.equal(defaultErrorMessage);
+      expect(result.errorCode).to.equal(503);
       done();
     }).catch(done);
   })
@@ -170,7 +170,7 @@ describe('Scoring Controller Test Cases', function(){
 
   it('computeSleepProblemSenses Invalid Test case', function(done){
     SSA_ClientLib.ScoringController.computeSleepProblemSenses ('').then(function(result) {
-      expect(result.errorMessage).to.equal(defaultErrorMessage);
+      expect(result.errorCode).to.equal(503);
       done();
     }).catch(done);
   })
@@ -195,7 +195,7 @@ describe('Scoring Controller Test Cases', function(){
   
   it('getcomputableSleepProblemSenses Invalid Test case', function(done){
     SSA_ClientLib.ScoringController.getcomputableSleepProblemSenses ('').then(function(result) {
-      expect(result.errorMessage).to.equal(defaultErrorMessage);
+      expect(result.errorCode).to.equal(503);
       done();
     }).catch(done);
   })
@@ -207,16 +207,16 @@ describe('Scoring Controller Test Cases', function(){
     }).catch(done);
   })
 
-  it('getComputableSenses Invalid Test case', function(done){
+  it('getComputableSenses Invalid Test case 1', function(done){
     SSA_ClientLib.ScoringController.getComputableSenses (sleepProbsenseid_Invalid).then(function(result) {
       expect(result.length).to.equal(0);
       done();
     }).catch(done);
   })
 
-  it('getComputableSenses Invalid Test case', function(done){
+  it('getComputableSenses Invalid Test case 2', function(done){
     SSA_ClientLib.ScoringController.getComputableSenses ('').then(function(result) {
-      expect(result.errorMessage).to.equal(defaultErrorMessage);
+      expect(result.errorCode).to.equal(503);
       done();
     }).catch(done);
   })
@@ -228,7 +228,7 @@ describe('Scoring Controller Test Cases', function(){
     'riseTime': '7:00'
   }
 
-  it('computeAllSenses Test case', function(done){
+  it('computeAllSenses Test case 1', function(done){
     SSA_ClientLib.ScoringController.computeAllSenses (computeAllSensepara).then(function(result) {
       expect(result.bmi).to.equal(29.296874999999993);
       done();
@@ -242,18 +242,17 @@ describe('Scoring Controller Test Cases', function(){
     'riseTime': '7:00'
   }
 
-  it('computeAllSenses Test case', function(done){
+  it('computeAllSenses Test case 2', function(done){
     SSA_ClientLib.ScoringController.computeAllSenses (computeAllSensepara_Invalid).then(function(result) {
       expect(result.errorMessage).to.equal('{"faultCode":"2102","message":"Invalid value \'test\' for sense \'height\' of type \'DoubleSenseValue\'"}');
       done();
     }).catch(done);
   })
 
-  it('computeAllSenses Test case', function(done){
+  it('computeAllSenses Test case 3', function(done){
     SSA_ClientLib.ScoringController.computeAllSenses ('').then(function(result) {
-      expect(result.errorMessage).to.equal(defaultErrorMessage);
+      expect(result.errorCode).to.equal(503);
       done();
     }).catch(done);
   })
 });
- 

@@ -981,12 +981,12 @@ public class ResultController extends BaseController {
 	 * @return Returns the ResultDTO response from the API call
 	 */
 
-	public ResultDTO getComputeResult(final String surveyIdentifier, final String sessionId) throws Throwable {
+	public ResultDTO computeResult(final String surveyIdentifier, final String sessionId) throws Throwable {
 		APICallBackCatcher<ResultDTO> callback = new APICallBackCatcher<ResultDTO>();
-		getComputeResultAsync(surveyIdentifier, sessionId, callback);
+		computeResultAsync(surveyIdentifier, sessionId, callback);
 		if (!callback.isSuccess()) {
 			if (callback.getError().getMessage().equals("Access token regenarated")) {
-				return getComputeResultRetry(surveyIdentifier, sessionId);
+				return computeResultRetry(surveyIdentifier, sessionId);
 			} else
 			throw callback.getError();
 		}
@@ -995,9 +995,9 @@ public class ResultController extends BaseController {
 		return result;
 	}
 
-	private ResultDTO getComputeResultRetry(final String surveyIdentifier, final String sessionId) throws Throwable {
+	private ResultDTO computeResultRetry(final String surveyIdentifier, final String sessionId) throws Throwable {
 		APICallBackCatcher<ResultDTO> callback = new APICallBackCatcher<ResultDTO>();
-		getComputeResultAsync(surveyIdentifier, sessionId, callback);
+		computeResultAsync(surveyIdentifier, sessionId, callback);
 		if (!callback.isSuccess()) {
 			throw callback.getError();
 		}
@@ -1012,7 +1012,7 @@ public class ResultController extends BaseController {
 	 * @param surveyIdentifier Required parameter: The identifier of the survey.
 	 * @return Returns the void response from the API call
 	 */
-	private void getComputeResultAsync(final String surveyIdentifier, final String sessionId, final APICallBack<ResultDTO> callBack) {
+	private void computeResultAsync(final String surveyIdentifier, final String sessionId, final APICallBack<ResultDTO> callBack) {
 		Runnable _responseTask = new Runnable() {
 			public void run() {
 

@@ -54,7 +54,7 @@ public interface HttpClient {
      */
     public HttpRequest get(String _queryUrl,
                     Map<String, String> _headers, List<SimpleEntry<String, Object>> _parameters,
-                    String _sessionname, String _password);
+                    String _username, String _password);
 
     /**
      * Create a simple HTTP GET request
@@ -67,7 +67,7 @@ public interface HttpClient {
      */
     public HttpRequest head(String _queryUrl,
             Map<String, String> _headers, List<SimpleEntry<String, Object>> _parameters,
-            String _sessionname, String _password);
+            String _username, String _password);
 
     /**
     * Create a simple HTTP HEAD request
@@ -87,7 +87,7 @@ public interface HttpClient {
      */
     public HttpRequest post(String _queryUrl,
                      Map<String, String> _headers, List<SimpleEntry<String, Object>> _parameters,
-                     String _sessionname, String _password);
+                     String _username, String _password);
 
     /**
      * Create an HTTP POST request with body
@@ -100,7 +100,7 @@ public interface HttpClient {
      */
     public HttpBodyRequest postBody(String _queryUrl,
                              Map<String, String> _headers, String _body,
-                             String _sessionname, String _password);
+                             String _username, String _password);
 
     /**
      * Create an HTTP PUT request with parameters
@@ -113,7 +113,7 @@ public interface HttpClient {
      */
     HttpRequest put(String _queryUrl,
                     Map<String, String> _headers, List<SimpleEntry<String, Object>> _parameters,
-                    String _sessionname, String _password);
+                    String _username, String _password);
 
     /**
      * Create an HTTP PUT request with body
@@ -126,7 +126,7 @@ public interface HttpClient {
      */
     public HttpBodyRequest putBody(String _queryUrl,
                             Map<String, String> _headers, String _body,
-                            String _sessionname, String _password);
+                            String _username, String _password);
 
     /**
      * Create an HTTP PATCH request with parameters
@@ -139,7 +139,7 @@ public interface HttpClient {
      */
     HttpRequest patch(String _queryUrl,
                       Map<String, String> _headers, List<SimpleEntry<String, Object>> _parameters,
-                      String _sessionname, String _password);
+                      String _username, String _password);
 
     /**
      * Create an HTTP PATCH request with body
@@ -152,7 +152,7 @@ public interface HttpClient {
      */
     public HttpBodyRequest patchBody(String _queryUrl,
                               Map<String, String> _headers, String _body,
-                              String _sessionname, String _password);
+                              String _username, String _password);
 
     /**
      * Create an HTTP DELETE request with parameters
@@ -165,7 +165,7 @@ public interface HttpClient {
      */
     public HttpRequest delete(String _queryUrl,
                        Map<String, String> _headers, List<SimpleEntry<String, Object>> _parameters,
-                       String _sessionname, String _password);
+                       String _username, String _password);
 
     /**
      * Create an HTTP DELETE request with body
@@ -178,5 +178,5 @@ public interface HttpClient {
      */
     public HttpBodyRequest deleteBody(String _queryUrl,
                                Map<String, String> _headers, String _body,
-                               String _sessionname, String _password);
+                               String _username, String _password);
 }

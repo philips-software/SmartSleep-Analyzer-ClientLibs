@@ -28,7 +28,7 @@ public class SessionController extends BaseController {
 	// private static variables for the singleton pattern
 	private static final Object syncObject = new Object();
 	private static SessionController instance = null;
-	private static final String USER_URI = "/User";
+	private static final String SESSION_URI = "/Session";
 
 	/**
 	 * Singleton pattern implementation
@@ -52,21 +52,21 @@ public class SessionController extends BaseController {
 	 * @param sessionDTO Optional parameter: Object containing the session's credentials.
 	 * @return Returns the SessionDTO response from the API call
 	 */
-	private SessionDTO loginUser(final SessionDTO sessionDTO) throws Throwable {
+	private SessionDTO activateSession(final SessionDTO sessionDTO) throws Throwable {
 		APICallBackCatcher<SessionDTO> callback = new APICallBackCatcher<SessionDTO>();
-		loginAsync(sessionDTO, callback);
+		activateSessionAsync(sessionDTO, callback);
 		if (!callback.isSuccess()) {
 			if (callback.getError().getMessage().equals("Access token regenarated")) {
-				return loginUserRetry(sessionDTO);
+				return activateSessionRetry(sessionDTO);
 			} else
 				throw callback.getError();
 		}
 		return callback.getResult();
 	}
 
-	private SessionDTO loginUserRetry(final SessionDTO sessionDTO) throws Throwable {
+	private SessionDTO activateSessionRetry(final SessionDTO sessionDTO) throws Throwable {
 		APICallBackCatcher<SessionDTO> callback = new APICallBackCatcher<SessionDTO>();
-		loginAsync(sessionDTO, callback);
+		activateSessionAsync(sessionDTO, callback);
 		if (!callback.isSuccess()) {
 			throw callback.getError();
 		}
@@ -79,7 +79,7 @@ public class SessionController extends BaseController {
 	 * @param sessionDTO Optional parameter: Object containing the session's credentials.
 	 * @return Returns the void response from the API call
 	 */
-	private void loginAsync(final SessionDTO sessionDTO, final APICallBack<SessionDTO> callBack) {
+	private void activateSessionAsync(final SessionDTO sessionDTO, final APICallBack<SessionDTO> callBack) {
 		Runnable _responseTask = new Runnable() {
 			public void run() {
 
@@ -90,7 +90,7 @@ public class SessionController extends BaseController {
 					String _baseUri = Configuration.getBaseUri();
 
 					// prepare query string for API call
-					StringBuilder _queryBuilder = new StringBuilder(USER_URI + "/LoginUser");
+					StringBuilder _queryBuilder = new StringBuilder(SESSION_URI + "/ActivateSession");
 
 					// validate and preprocess url
 					String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
@@ -163,19 +163,19 @@ public class SessionController extends BaseController {
 	 * 
 	 * @return Returns the SessionDTO response from the API call
 	 */
-	private SessionDTO retrieveLoggedInUser() throws Throwable {
+	private SessionDTO retrieveActivatedSession() throws Throwable {
 		APICallBackCatcher<SessionDTO> callback = new APICallBackCatcher<SessionDTO>();
 		retrieveAsync(callback);
 		if (!callback.isSuccess()) {
 			if (callback.getError().getMessage().equals("Access token regenarated")) {
-				return retrieveLoggedInUserRetry();
+				return retrieveActivatedSessionRetry();
 			} else
 				throw callback.getError();
 		}
 		return callback.getResult();
 	}
 
-	private SessionDTO retrieveLoggedInUserRetry() throws Throwable {
+	private SessionDTO retrieveActivatedSessionRetry() throws Throwable {
 		APICallBackCatcher<SessionDTO> callback = new APICallBackCatcher<SessionDTO>();
 		retrieveAsync(callback);
 		if (!callback.isSuccess()) {
@@ -200,7 +200,7 @@ public class SessionController extends BaseController {
 					String _baseUri = Configuration.getBaseUri();
 
 					// prepare query string for API call
-					StringBuilder _queryBuilder = new StringBuilder(USER_URI + "/RetrieveLoggedInUser");
+					StringBuilder _queryBuilder = new StringBuilder(SESSION_URI + "/RetrieveActivatedSession");
 
 					// validate and preprocess url
 					String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
@@ -272,21 +272,21 @@ public class SessionController extends BaseController {
 	 * 
 	 * @return Returns the void response from the API call
 	 */
-	private void logoutUser() throws Throwable {
+	private void deactivateSession() throws Throwable {
 		APICallBackCatcher<Object> callback = new APICallBackCatcher<Object>();
-		getLogoutAsync(callback);
+		deactivateSessionAsync(callback);
 		if (!callback.isSuccess()) {
 			if (callback.getError().getMessage().equals("Access token regenarated")) {
-				logoutUserRetry();
+				deactivateSessionRetry();
 			} else
 				throw callback.getError();
 		}
 		callback.getResult();
 	}
 
-	private void logoutUserRetry() throws Throwable {
+	private void deactivateSessionRetry() throws Throwable {
 		APICallBackCatcher<Object> callback = new APICallBackCatcher<Object>();
-		getLogoutAsync(callback);
+		deactivateSessionAsync(callback);
 		if (!callback.isSuccess()) {
 			throw callback.getError();
 		}
@@ -298,7 +298,7 @@ public class SessionController extends BaseController {
 	 * 
 	 * @return Returns the void response from the API call
 	 */
-	private void getLogoutAsync(final APICallBack<Object> callBack) {
+	private void deactivateSessionAsync(final APICallBack<Object> callBack) {
 		Runnable _responseTask = new Runnable() {
 			public void run() {
 
@@ -309,7 +309,7 @@ public class SessionController extends BaseController {
 					String _baseUri = Configuration.getBaseUri();
 
 					// prepare query string for API call
-					StringBuilder _queryBuilder = new StringBuilder(USER_URI + "/LogoutUser");
+					StringBuilder _queryBuilder = new StringBuilder(SESSION_URI + "/DeactivateSession");
 
 					// validate and preprocess url
 					String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
@@ -376,21 +376,21 @@ public class SessionController extends BaseController {
 	 * @param sessionDTO Optional parameter: The provided information.
 	 * @return Returns the SessionDTO response from the API call
 	 */
-	private SessionDTO registerUser(final SessionDTO sessionDTO) throws Throwable {
+	private SessionDTO createSession(final SessionDTO sessionDTO) throws Throwable {
 		APICallBackCatcher<SessionDTO> callback = new APICallBackCatcher<SessionDTO>();
-		registerUserAsync(sessionDTO, callback);
+		createSessionAsync(sessionDTO, callback);
 		if (!callback.isSuccess()) {
 			if (callback.getError().getMessage().equals("Access token regenarated")) {
-				return registerUserRetry(sessionDTO);
+				return createSessionRetry(sessionDTO);
 			} else
 				throw callback.getError();
 		}
 		return callback.getResult();
 	}
 
-	private SessionDTO registerUserRetry(final SessionDTO sessionDTO) throws Throwable {
+	private SessionDTO createSessionRetry(final SessionDTO sessionDTO) throws Throwable {
 		APICallBackCatcher<SessionDTO> callback = new APICallBackCatcher<SessionDTO>();
-		registerUserAsync(sessionDTO, callback);
+		createSessionAsync(sessionDTO, callback);
 		if (!callback.isSuccess()) {
 			throw callback.getError();
 		}
@@ -403,7 +403,7 @@ public class SessionController extends BaseController {
 	 * @param sessionDTO Optional parameter: The provided information.
 	 * @return Returns the void response from the API call
 	 */
-	private void registerUserAsync(final SessionDTO sessionDTO, final APICallBack<SessionDTO> callBack) {
+	private void createSessionAsync(final SessionDTO sessionDTO, final APICallBack<SessionDTO> callBack) {
 		Runnable _responseTask = new Runnable() {
 			public void run() {
 
@@ -414,7 +414,7 @@ public class SessionController extends BaseController {
 					String _baseUri = Configuration.getBaseUri();
 
 					// prepare query string for API call
-					StringBuilder _queryBuilder = new StringBuilder(USER_URI + "/RegisterUser");
+					StringBuilder _queryBuilder = new StringBuilder(SESSION_URI + "/CreateSession");
 
 					// validate and preprocess url
 					String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));

@@ -59,18 +59,14 @@ Tests can be run in a number of ways:
 
 ### Method 1 (Run all tests)
 
-1. Navigate to the root directory of the SDK folder from command prompt.
-2. Type `mocha --recursive` to run all the tests.
+1. Navigate to the `<repo-root>/test/` directory from command prompt.
+2. Type `mocha --<YourClientId> --<YourClientSecret> *` to run all the tests.
 
-### Method 2 (Run all tests)
+### Method 2 (Run specific controller's tests)
 
-1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha *` to run all the tests.
-
-### Method 3 (Run specific controller's tests)
-
-1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  <Controller Name Here>`  to run all the tests in that controller file.
+1. Navigate to the `<repo-root>/test/` directory from command prompt.
+2. Edit the `clientid` and `secretKey` properties in the `Configuration.js` file with your Client Id and Secret.
+3. Type `mocha <ControllerFileName>` to run all the tests in that controller file.
 
 > To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
 

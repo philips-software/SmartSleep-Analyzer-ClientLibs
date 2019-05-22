@@ -782,7 +782,6 @@ public class ScoringController extends BaseController {
 	 * 
 	 * @param locale      Optional parameter: Optional query param locale used to
 	 *                    localize question sense text.
-	 * @param accessToken
 	 * @return Returns the void response from the API call
 	 */
 	private void getAllSensesAsync(final String locale, final APICallBack<List<SenseDTO>> callBack) {

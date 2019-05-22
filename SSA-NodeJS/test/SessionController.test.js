@@ -1,4 +1,4 @@
-// var lib = require('smartsleep-analyzer');
+// var lib = require('../lib/index.js');
 // var _expect = require('chai').expect;
 // var _config = require('./Configuration');
 

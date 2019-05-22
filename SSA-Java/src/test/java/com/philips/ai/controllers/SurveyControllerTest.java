@@ -120,7 +120,7 @@ public class SurveyControllerTest {
 	 * Assert.assertTrue(surveyStateDTO.getFinished());
 	 * 
 	 * // Check the result ResultDTO resultDTO =
-	 * analyzerClient.getResult().getComputeResult(identifier, sessionId);
+	 * analyzerClient.getResult().computeResult(identifier, sessionId);
 	 * 
 	 * Assert.assertEquals(sessionId, resultDTO.getSessionId());
 	 * Assert.assertEquals("none",

@@ -368,7 +368,7 @@ public class ConditionDTO
      * The feedback flag indicating whether the end-user agrees with the condition.
      */
     @JsonSetter("conditionFeedback")
-    public void setUserFeedback (Boolean value) { 
+    public void setConditionFeedback (Boolean value) {
         this.conditionFeedback = value;
     }
  

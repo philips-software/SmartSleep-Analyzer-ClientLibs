@@ -94,6 +94,15 @@ class APIHelper {
     }
 
     /**
+     * JSON Deserialization of a given string.
+     * @param   {string} data The string to deserialize into an object
+     * @return  {Object}      The de-serialized Json object representation of the given string
+     */
+    static jsonDeserialize(data) {
+        return JSON.parse(data);
+    }
+
+    /**
      * Formats the template parameters in the string
      * @param   {string}    str     The string containing the template
      * @return  {string}            The string with template parameters filled in.

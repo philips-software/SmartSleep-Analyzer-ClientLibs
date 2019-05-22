@@ -182,7 +182,7 @@ public class ConditionDTOBuilder {
      * The feedback flag indicating whether the end-user agrees with the condition.
      */
     public ConditionDTOBuilder conditionFeedback(Boolean conditionFeedback) {
-        conditionDTO.setUserFeedback(conditionFeedback);
+        conditionDTO.setConditionFeedback(conditionFeedback);
         return this;
     }
     /**

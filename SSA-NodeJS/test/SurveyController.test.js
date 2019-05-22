@@ -1,4 +1,4 @@
-const lib = require('smartsleep-analyzer');
+const lib = require('../lib/index.js');
 const expect = require('chai').expect;
 const _config = require('./Configuration');
 

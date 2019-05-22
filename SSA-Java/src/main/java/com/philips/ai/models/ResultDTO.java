@@ -18,7 +18,7 @@ public class ResultDTO
     private LinkedHashMap<String, Object> senseValues;
     
     /** GETTER
-     * Session id associate with the user survey interaction.
+     * Session id associated with the survey interaction.
      */
     @JsonGetter("sessionId")
     public String getSessionId ( ) { 
@@ -26,7 +26,7 @@ public class ResultDTO
     }
     
     /** SETTER
-     * Session id associate with the user survey interaction.
+     * Session id associated with the survey interaction.
      */
     @JsonSetter("sessionId")
     public void setSessionId (String value) { 

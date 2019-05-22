@@ -20,7 +20,7 @@ public class SurveyStateDTO
     private LinkedHashMap<String, Object> answers;
     
     /** GETTER
-     * Session id associate with the user survey interaction.
+     * Session id associated with the survey interaction.
      */
     @JsonGetter("sessionId")
     public String getSessionId ( ) { 
@@ -28,7 +28,7 @@ public class SurveyStateDTO
     }
     
     /** SETTER
-     * Session id associate with the user survey interaction.
+     * Session id associated with the survey interaction.
      */
     @JsonSetter("sessionId")
     public void setSessionId (String value) { 

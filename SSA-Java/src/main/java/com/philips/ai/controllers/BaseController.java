@@ -88,7 +88,6 @@ public abstract class BaseController {
 	 * 
 	 * @param _response The response received
 	 * @param context   Context of the request and the received response
-	 * @throws UnirestException
 	 */
 	protected void validateResponse(HttpResponse _response, HttpContext context) throws APIException {
 		// get response status code to validate

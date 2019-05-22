@@ -12,18 +12,18 @@ public class SessionDTOBuilder {
     }
 
     /**
-     * The session identifier.
+     * The session's identifier.
      */
-    public SessionDTOBuilder sessionKey(String loginName) {
-        sessionDTO.setSessionKey(loginName);
+    public SessionDTOBuilder sessionKey(String sessionKey) {
+        sessionDTO.setSessionKey(sessionKey);
         return this;
     }
 
     /**
      * The session's dataKey. This is only used for passing data to APIs. A dataKey is never returned from APIs.
      */
-    public SessionDTOBuilder dataKey(String password) {
-        sessionDTO.setDataKey(password);
+    public SessionDTOBuilder dataKey(String datakey) {
+        sessionDTO.setDataKey(datakey);
         return this;
     }
 

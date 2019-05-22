@@ -28,70 +28,69 @@ public class SessionControllerTest {
 	}
 
 	/*
-	 * //@Test public void testCreateRegisterUser() throws Throwable { SessionDTO
-	 * resultDTO = registerUser(); Assert.assertEquals("testFirstName",
+	 * //@Test public void testCreateSession() throws Throwable { SessionDTO
+	 * resultDTO = createSession(); Assert.assertEquals("testFirstName",
 	 * resultDTO.getFirstName()); }
-	 * 
-	 * //@Test public void testRegisterUser_ExistingUser() throws Throwable {
-	 * SessionDTO resultDTO = registerUser(); SessionDTO sessionDTO = new SessionDTO();
+	 *
+	 * //@Test public void testCreateSession_ExistingSession() throws Throwable {
+	 * SessionDTO resultDTO = createSession(); SessionDTO sessionDTO = new SessionDTO();
 	 * sessionDTO.setSessionKey(resultDTO.getSessionKey());
 	 * sessionDTO.setFirstName("testFirstName"); sessionDTO.setLastName("testLastName");
-	 * sessionDTO.setEmail("test@test.com"); sessionDTO.setDataKey("testPassword");
-	 * 
-	 * try { analyzerClient.getSession().registerUser(sessionDTO); } catch (Exception e) {
-	 * Assert.assertEquals("4101:Username \""+ sessionDTO.getSessionKey().toString()
+	 * sessionDTO.setEmail("test@test.com"); sessionDTO.setDataKey("testSessionKey");
+	 *
+	 * try { analyzerClient.getSession().createSession(sessionDTO); } catch (Exception e) {
+	 * Assert.assertEquals("4101:SessionKey \""+ sessionDTO.getSessionKey().toString()
 	 * +"\" is already taken", e.getMessage()); } }
-	 * 
-	 * //@Test public void testRegisterUser_EmptyRegisterUserDetails() throws
+	 *
+	 * //@Test public void testCreateSession_EmptyCreateSessionDetails() throws
 	 * Throwable { SessionDTO sessionDTO = new SessionDTO(); try {
-	 * analyzerClient.getSession().registerUser(sessionDTO); } catch (Exception e) {
-	 * Assert.assertEquals("4101:Password is required", e.getMessage()); } }
-	 * 
-	 * //@Test public void testLoginUser() throws Throwable { SessionDTO resultDTO =
-	 * registerUser(); SessionDTO sessionDTO = new SessionDTO();
+	 * analyzerClient.getSession().createSession(sessionDTO); } catch (Exception e) {
+	 * Assert.assertEquals("4101:SessionKey is required", e.getMessage()); } }
+	 *
+	 * //@Test public void testActivateSession() throws Throwable { SessionDTO resultDTO =
+	 * createSession(); SessionDTO sessionDTO = new SessionDTO();
 	 * sessionDTO.setSessionKey(resultDTO.getSessionKey());
-	 * sessionDTO.setEmail(resultDTO.getEmail()); sessionDTO.setDataKey("testPassword");
-	 * SessionDTO result = analyzerClient.getSession().loginUser(sessionDTO);
+	 * sessionDTO.setEmail(resultDTO.getEmail()); sessionDTO.setDataKey("testSessionKey");
+	 * SessionDTO result = analyzerClient.getSession().activateSession(sessionDTO);
 	 * Assert.assertEquals(resultDTO.getId(), result.getId());
 	 * Assert.assertEquals(resultDTO.getLastName(), result.getLastName());
 	 * Assert.assertEquals(resultDTO.getFirstName(), result.getFirstName());
 	 * Assert.assertEquals(resultDTO.getSessionKey(), result.getSessionKey());
 	 * Assert.assertEquals(resultDTO.getEmail(), result.getEmail());
 	 * Assert.assertEquals(resultDTO.getDataKey(), null);
-	 * Assert.assertEquals(resultDTO.getNewPassword(), null);
-	 * 
+	 *
 	 * }
-	 * 
-	 * //@Test public void testCreateLogin_InvalidUser() throws Throwable { SessionDTO
+	 *
+	 * //@Test public void testcreateSession_InvalidSession() throws Throwable { SessionDTO
 	 * sessionDTO = new SessionDTO(); sessionDTO.setId(123456789L);
-	 * sessionDTO.setSessionKey("testLoginUser" + new Random().nextLong());
-	 * sessionDTO.setEmail("test@test.com"); sessionDTO.setDataKey("testPassword");
-	 * 
-	 * try { analyzerClient.getSession().loginUser(sessionDTO); } catch (Exception e) {
-	 * Assert.assertEquals("4201:Username and/or Password is incorrect.",
+	 * sessionDTO.setSessionKey("testActivateSession" + new Random().nextLong());
+	 * sessionDTO.setEmail("test@test.com"); sessionDTO.setDataKey("testSessionKey");
+	 *
+	 * try { analyzerClient.getSession().activateSession(sessionDTO); } catch (Exception e) {
+	 * Assert.assertEquals("4201:SessionKey and/or DataKey is incorrect.",
 	 * e.getMessage()); } }
-	 * 
-	 * //@Test public void testCreateLogin_EmptyUserLoginDetails() throws Throwable
+	 *
+	 * //@Test public void testcreateSession_EmptyCreateSessionDetails() throws Throwable
 	 * { SessionDTO sessionDTO = new SessionDTO(); try {
-	 * analyzerClient.getSession().loginUser(sessionDTO); } catch (Exception e) {
-	 * Assert.assertEquals("4201:Username and/or Password is incorrect.",
+	 * analyzerClient.getSession().activateSession(sessionDTO); } catch (Exception e) {
+	 * Assert.assertEquals("4201:SessionKey and/or DataKey is incorrect.",
 	 * e.getMessage()); } }
-	 * 
+	 *
 	 * //@Test public void testRetrieve() throws Throwable { try {
-	 * analyzerClient.getSession().retrieveLoggedInUser(); } catch (Exception e) {
+	 * analyzerClient.getSession().retrieveActivatedSession(); } catch (Exception e) {
 	 * Assert.assertEquals(defaultErrorMessage, e.getMessage()); } }
-	 * 
-	 * //@Test public void testGetLogout() throws Throwable {
-	 * analyzerClient.getSession().logoutUser(); }
+	 *
+	 * //@Test public void testdeactivateSession() throws Throwable {
+	 * analyzerClient.getSession().deactivateSession(); }
 	 */
 
 	/*
-	 * private SessionDTO registerUser() throws Throwable { SessionDTO sessionDTO = new
+	 * private SessionDTO createSession() throws Throwable { SessionDTO sessionDTO = new
 	 * SessionDTO(); sessionDTO.setSessionKey("testsession" + new
 	 * SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
 	 * sessionDTO.setFirstName("testFirstName"); sessionDTO.setLastName("testLastName");
-	 * sessionDTO.setEmail("test@test.com"); sessionDTO.setDataKey("testPassword");
-	 * SessionDTO resultDTO = analyzerClient.getSession().registerUser(sessionDTO); return
+	 * sessionDTO.setEmail("test@test.com"); sessionDTO.setDataKey("testSessionKey");
+	 * SessionDTO resultDTO = analyzerClient.getSession().createSession(sessionDTO); return
 	 * resultDTO; }
 	 */
 }

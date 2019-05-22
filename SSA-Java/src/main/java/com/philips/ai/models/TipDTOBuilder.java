@@ -47,7 +47,7 @@ public class TipDTOBuilder {
      * Indicates whether an end-user is likely or unlikely to follow the tip, or null if no feedback was provided.
      */
     public TipDTOBuilder tipFeedback(Boolean tipFeedback) {
-        tipDTO.setUserFeedback(tipFeedback);
+        tipDTO.setTipFeedback(tipFeedback);
         return this;
     }
     /**

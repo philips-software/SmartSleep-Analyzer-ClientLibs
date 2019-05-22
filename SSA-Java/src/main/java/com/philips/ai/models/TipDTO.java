@@ -90,7 +90,7 @@ public class TipDTO
      * Indicates whether an end-user is likely or unlikely to follow the tip, or null if no feedback was provided.
      */
     @JsonSetter("tipFeedback")
-    public void setUserFeedback (Boolean value) { 
+    public void setTipFeedback (Boolean value) {
         this.tipFeedback = value;
     }
  

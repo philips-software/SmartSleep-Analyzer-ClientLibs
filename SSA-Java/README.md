@@ -49,6 +49,10 @@ Here, you can add code to initialize the client library and instantiate a *Contr
 The generated code and the server can be tested using automatically generated test cases. 
 JUnit is used as the testing framework and test runner.
 
+From the command line, test with mvn with the following (replace client credentials with your own):
+
+1. mvn clean install site -Prelease -DclientId=<YourClientId> -DclientSecret=<YourClientSecret>
+
 In Eclipse, for running the tests do the following:
 
 1. Select the project *SmartSleepAnalyzer* from the package explorer.
@@ -61,7 +65,6 @@ In Eclipse, for running the tests do the following:
 API client can be initialized as following.
 
 ```java
-
 SmartSleepAnalyzerClient client = new SmartSleepAnalyzerClient();
 ```
 
@@ -85,16 +88,15 @@ The singleton instance of the ``` ScoringController ``` class can be accessed fr
 ScoringController scoring = client.getScoring();
 ```
 
-### <a name="get_required_question_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getRequiredQuestionSensesAsync") getRequiredQuestionSensesAsync
+### <a name="get_required_question_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getRequiredQuestionSenses") getRequiredQuestionSenses
 
 > Returns all question senses required to compute the target sense.
 
 
 ```java
-void getRequiredQuestionSensesAsync(
+List<SenseDTO> getRequiredQuestionSenses(
         final String targetSenseId,
-        final String locale,
-        final APICallBack<List<SenseDTO>> callBack)
+        final String locale)
 ```
 
 #### Parameters
@@ -111,27 +113,18 @@ void getRequiredQuestionSensesAsync(
 String targetSenseId = "targetSenseId";
 String locale = "en-US";
 // Invoking the API call with sample inputs
-scoring.getRequiredQuestionSensesAsync(targetSenseId, locale, new APICallBack<List<SenseDTO>>() {
-    public void onSuccess(HttpContext context, List<SenseDTO> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+scoring.getRequiredQuestionSenses(targetSenseId, locale);
 
 ```
 
 
-### <a name="create_get_computable_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createGetComputableSleepProblemSensesAsync") createGetComputableSleepProblemSensesAsync
+### <a name="get_computable_sleep_problem_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getComputableSleepProblemSenses") getComputableSleepProblemSenses
 
 > Returns all sleep problem senses which can be computed from the given input sense ids.
 
 
 ```java
-void createGetComputableSleepProblemSensesAsync(
-        final List<String> senseIds,
-        final APICallBack<List<SenseDTO>> callBack)
+List<SenseDTO> getComputableSleepProblemSenses(final List<String> senseIds)
 ```
 
 #### Parameters
@@ -145,16 +138,9 @@ void createGetComputableSleepProblemSensesAsync(
 
 ```java
 try {
-    List<String> senseIds = new LinkedList<String>(Arrays.asList("senseIds"));
+    List<String> senseIds = new LinkedList<String>(Arrays.asList("height", "weight"));
     // Invoking the API call with sample inputs
-    scoring.createGetComputableSleepProblemSensesAsync(senseIds, new APICallBack<List<SenseDTO>>() {
-        public void onSuccess(HttpContext context, List<SenseDTO> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    scoring.createGetComputableSleepProblemSenses(senseIds);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -162,15 +148,13 @@ try {
 ```
 
 
-### <a name="create_get_computable_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createGetComputableSensesAsync") createGetComputableSensesAsync
+### <a name="get_computable_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getComputableSenses") getComputableSenses
 
 > Returns all senses which can be computed from the given input sense ids.
 
 
 ```java
-void createGetComputableSensesAsync(
-        final List<String> senseIds,
-        final APICallBack<List<SenseDTO>> callBack)
+List<SenseDTO> getComputableSenses(final List<String> senseIds)
 ```
 
 #### Parameters
@@ -184,16 +168,9 @@ void createGetComputableSensesAsync(
 
 ```java
 try {
-    List<String> senseIds = new LinkedList<String>(Arrays.asList("senseIds"));
+    List<String> senseIds = new LinkedList<String>(Arrays.asList("height", "weight"));
     // Invoking the API call with sample inputs
-    scoring.createGetComputableSensesAsync(senseIds, new APICallBack<List<SenseDTO>>() {
-        public void onSuccess(HttpContext context, List<SenseDTO> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    scoring.createGetComputableSenses(senseIds);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -201,69 +178,49 @@ try {
 ```
 
 
-### <a name="get_computed_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getComputedSensesAsync") getComputedSensesAsync
+### <a name="get_computed_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getComputedSenses") getComputedSenses
 
-> Returns metadata information about all computed senses. Computed senses are derived from other senses and should
-> 
-> not be asked directly to an end-user.
+> Returns metadata information about all computed senses. Computed senses are derived from other senses and should not be asked directly to an end-user.
 
 
 ```java
-void getComputedSensesAsync(final APICallBack<List<SenseDTO>> callBack)
+List<SenseDTO> getComputedSenses()
 ```
 
 #### Example Usage
 
 ```java
 // Invoking the API call with sample inputs
-scoring.getComputedSensesAsync(new APICallBack<List<SenseDTO>>() {
-    public void onSuccess(HttpContext context, List<SenseDTO> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+scoring.getComputedSenses();
 
 ```
 
 
-### <a name="get_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getSleepProblemSensesAsync") getSleepProblemSensesAsync
+### <a name="get_sleep_problem_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getSleepProblemSenses") getSleepProblemSenses
 
 > Returns metadata information about all sleep problem senses.
 
 
 ```java
-void getSleepProblemSensesAsync(final APICallBack<List<SenseDTO>> callBack)
+List<SenseDTO> getSleepProblemSenses()
 ```
 
 #### Example Usage
 
 ```java
 // Invoking the API call with sample inputs
-scoring.getSleepProblemSensesAsync(new APICallBack<List<SenseDTO>>() {
-    public void onSuccess(HttpContext context, List<SenseDTO> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+scoring.getSleepProblemSenses();
 
 ```
 
 
-### <a name="get_question_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getQuestionSensesAsync") getQuestionSensesAsync
+### <a name="get_question_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getQuestionSenses") getQuestionSenses
 
-> Returns metadata information about all question senses. Question senses are simple value senses which can be asked
-> 
-> to an end-user in the form of a question.
+> Returns metadata information about all question senses. Question senses are simple value senses which can be asked to an end-user in the form of a question.
 
 
 ```java
-void getQuestionSensesAsync(
-        final String locale,
-        final APICallBack<List<SenseDTO>> callBack)
+List<SenseDTO> getQuestionSenses(final String locale)
 ```
 
 #### Parameters
@@ -278,27 +235,18 @@ void getQuestionSensesAsync(
 ```java
 String locale = "en-US";
 // Invoking the API call with sample inputs
-scoring.getQuestionSensesAsync(locale, new APICallBack<List<SenseDTO>>() {
-    public void onSuccess(HttpContext context, List<SenseDTO> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+scoring.getQuestionSenses(locale);
 
 ```
 
 
-### <a name="get_all_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getAllSensesAsync") getAllSensesAsync
+### <a name="get_all_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getAllSenses") getAllSenses
 
 > Returns metadata information about all available senses.
 
 
 ```java
-void getAllSensesAsync(
-        final String locale,
-        final APICallBack<List<SenseDTO>> callBack)
+List<SenseDTO> getAllSenses(final String locale)
 ```
 
 #### Parameters
@@ -313,28 +261,20 @@ void getAllSensesAsync(
 ```java
 String locale = "en-US";
 // Invoking the API call with sample inputs
-scoring.getAllSensesAsync(locale, new APICallBack<List<SenseDTO>>() {
-    public void onSuccess(HttpContext context, List<SenseDTO> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+scoring.getAllSenses(locale);
 
 ```
 
 
-### <a name="get_sense_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getSenseAsync") getSenseAsync
+### <a name="get_sense"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.getSense") getSense
 
 > Returns metadata information about a single sense.
 
 
 ```java
-void getSenseAsync(
+SenseDTO getSense(
         final String senseId,
-        final String locale,
-        final APICallBack<SenseDTO> callBack)
+        final String locale)
 ```
 
 #### Parameters
@@ -348,30 +288,21 @@ void getSenseAsync(
 #### Example Usage
 
 ```java
-String senseId = "senseId";
+String senseId = "bmi";
 String locale = "en-US";
 // Invoking the API call with sample inputs
-scoring.getSenseAsync(senseId, locale, new APICallBack<SenseDTO>() {
-    public void onSuccess(HttpContext context, SenseDTO response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+scoring.getSense(senseId, locale);
 
 ```
 
 
-### <a name="create_compute_intermediate_and_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeIntermediateAndSleepProblemSensesAsync") createComputeIntermediateAndSleepProblemSensesAsync
+### <a name="compute_intermediate_and_sleep_problem_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.computeIntermediateAndSleepProblemSenses") computeIntermediateAndSleepProblemSenses
 
 > Computes the values of all possible intermediate and sleep problem senses based on the provided input values.
 
 
 ```java
-void createComputeIntermediateAndSleepProblemSensesAsync(
-        final Object inputValues,
-        final APICallBack<LinkedHashMap<String, Object>> callBack)
+LinkedHashMap<String, Object> computeIntermediateAndSleepProblemSenses(final Object inputValues)
 ```
 
 #### Parameters
@@ -387,14 +318,7 @@ void createComputeIntermediateAndSleepProblemSensesAsync(
 try {
     Object inputValues = new Object();
     // Invoking the API call with sample inputs
-    scoring.createComputeIntermediateAndSleepProblemSensesAsync(inputValues, new APICallBack<LinkedHashMap<String, Object>>() {
-        public void onSuccess(HttpContext context, LinkedHashMap<String, Object> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    scoring.createComputeIntermediateAndSleepProblemSenses(inputValues);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -402,15 +326,13 @@ try {
 ```
 
 
-### <a name="create_compute_sleep_problem_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeSleepProblemSensesAsync") createComputeSleepProblemSensesAsync
+### <a name="compute_sleep_problem_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.computeSleepProblemSenses") computeSleepProblemSenses
 
 > Computes the values of all possible sleep problem senses based on the provided input values.
 
 
 ```java
-void createComputeSleepProblemSensesAsync(
-        final Object inputValues,
-        final APICallBack<LinkedHashMap<String, Object>> callBack)
+LinkedHashMap<String, Object> computeSleepProblemSenses(final Object inputValues)
 ```
 
 #### Parameters
@@ -426,14 +348,7 @@ void createComputeSleepProblemSensesAsync(
 try {
     Object inputValues = new Object();
     // Invoking the API call with sample inputs
-    scoring.createComputeSleepProblemSensesAsync(inputValues, new APICallBack<LinkedHashMap<String, Object>>() {
-        public void onSuccess(HttpContext context, LinkedHashMap<String, Object> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    scoring.createComputeSleepProblemSenses(inputValues);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -441,16 +356,15 @@ try {
 ```
 
 
-### <a name="create_compute_sense_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeSenseAsync") createComputeSenseAsync
+### <a name="compute_sense"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.computeSense") computeSense
 
 > Computes the value of a single sense based on the provided input values.
 
 
 ```java
-void createComputeSenseAsync(
+LinkedHashMap<String, Object> computeSense(
         final String senseId,
-        final Object inputValues,
-        final APICallBack<LinkedHashMap<String, Object>> callBack)
+        final Object inputValues)
 ```
 
 #### Parameters
@@ -465,17 +379,10 @@ void createComputeSenseAsync(
 
 ```java
 try {
-    String senseId = "senseId";
+    String senseId = "bmi";
     Object inputValues = new Object();
     // Invoking the API call with sample inputs
-    scoring.createComputeSenseAsync(senseId, inputValues, new APICallBack<LinkedHashMap<String, Object>>() {
-        public void onSuccess(HttpContext context, LinkedHashMap<String, Object> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    scoring.createComputeSense(senseId, inputValues);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -483,15 +390,13 @@ try {
 ```
 
 
-### <a name="create_compute_all_senses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.createComputeAllSensesAsync") createComputeAllSensesAsync
+### <a name="compute_all_senses"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ScoringController.computeAllSenses") computeAllSenses
 
 > Computes the values of all possible senses based on the provided input values.
 
 
 ```java
-void createComputeAllSensesAsync(
-        final Object inputValues,
-        final APICallBack<LinkedHashMap<String, Object>> callBack)
+LinkedHashMap<String, Object> computeAllSenses(final Object inputValues)
 ```
 
 #### Parameters
@@ -507,14 +412,7 @@ void createComputeAllSensesAsync(
 try {
     Object inputValues = new Object();
     // Invoking the API call with sample inputs
-    scoring.createComputeAllSensesAsync(inputValues, new APICallBack<LinkedHashMap<String, Object>>() {
-        public void onSuccess(HttpContext context, LinkedHashMap<String, Object> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    scoring.createComputeAllSenses(inputValues);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -534,16 +432,15 @@ The singleton instance of the ``` ResultController ``` class can be accessed fro
 ResultController result = client.getResult();
 ```
 
-### <a name="create_get_tips_by_condition_and_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTipsByConditionAndInputValuesAsync") createGetTipsByConditionAndInputValuesAsync
+### <a name="get_tips_by_condition_and_input_values"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getTipsByConditionAndInputValues") getTipsByConditionAndInputValues
 
 > Computes and returns all tips that would be associated with the given condition, based on the given input values.
 
 
 ```java
-void createGetTipsByConditionAndInputValuesAsync(
+List<TipResult> getTipsByConditionAndInputValues(
         final String conditionId,
-        final Object inputValues,
-        final APICallBack<List<TipResult>> callBack)
+        final Object inputValues)
 ```
 
 #### Parameters
@@ -558,17 +455,10 @@ void createGetTipsByConditionAndInputValuesAsync(
 
 ```java
 try {
-    String conditionId = "conditionId";
+    String conditionId = "osa";
     Object inputValues = new Object();
     // Invoking the API call with sample inputs
-    result.createGetTipsByConditionAndInputValuesAsync(conditionId, inputValues, new APICallBack<List<TipResult>>() {
-        public void onSuccess(HttpContext context, List<TipResult> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    result.createGetTipsByConditionAndInputValues(conditionId, inputValues);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -576,7 +466,7 @@ try {
 ```
 
 
-### <a name="create_get_tip_ids_by_condition_and_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTipIdsByConditionAndInputValuesAsync") createGetTipIdsByConditionAndInputValuesAsync
+### <a name="get_tip_ids_by_condition_and_input_values"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getTipIdsByConditionAndInputValues") getTipIdsByConditionAndInputValues
 
 > Computes and returns the ids of all tips that would be associated with the given condition, based on the given
 > 
@@ -584,10 +474,9 @@ try {
 
 
 ```java
-void createGetTipIdsByConditionAndInputValuesAsync(
+List<String> getTipIdsByConditionAndInputValues(
         final String conditionId,
-        final Object inputValues,
-        final APICallBack<List<String>> callBack)
+        final Object inputValues)
 ```
 
 #### Parameters
@@ -602,17 +491,10 @@ void createGetTipIdsByConditionAndInputValuesAsync(
 
 ```java
 try {
-    String conditionId = "conditionId";
+    String conditionId = "osa";
     Object inputValues = new Object();
     // Invoking the API call with sample inputs
-    result.createGetTipIdsByConditionAndInputValuesAsync(conditionId, inputValues, new APICallBack<List<String>>() {
-        public void onSuccess(HttpContext context, List<String> response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    result.createGetTipIdsByConditionAndInputValues(conditionId, inputValues);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -620,15 +502,13 @@ try {
 ```
 
 
-### <a name="create_get_tidbit_ids_by_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTidbitIdsByConditionAsync") createGetTidbitIdsByConditionAsync
+### <a name="get_tidbit_ids_by_condition"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getTidbitIdsByCondition") getTidbitIdsByCondition
 
 > Returns the ids of all tidbits that could be associated with the given condition.
 
 
 ```java
-void createGetTidbitIdsByConditionAsync(
-        final String conditionId,
-        final APICallBack<List<String>> callBack)
+List<String> getTidbitIdsByCondition(final String conditionId)
 ```
 
 #### Parameters
@@ -641,29 +521,20 @@ void createGetTidbitIdsByConditionAsync(
 #### Example Usage
 
 ```java
-String conditionId = "conditionId";
+String conditionId = "osa";
 // Invoking the API call with sample inputs
-result.createGetTidbitIdsByConditionAsync(conditionId, new APICallBack<List<String>>() {
-    public void onSuccess(HttpContext context, List<String> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+result.createGetTidbitIdsByCondition(conditionId);
 
 ```
 
 
-### <a name="create_get_tip_ids_by_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetTipIdsByConditionAsync") createGetTipIdsByConditionAsync
+### <a name="get_tip_ids_by_condition"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getTipIdsByCondition") getTipIdsByCondition
 
 > Returns the ids of all tips that could be associated with the given condition.
 
 
 ```java
-void createGetTipIdsByConditionAsync(
-        final String conditionId,
-        final APICallBack<List<String>> callBack)
+List<String> getTipIdsByCondition(final String conditionId)
 ```
 
 #### Parameters
@@ -676,29 +547,20 @@ void createGetTipIdsByConditionAsync(
 #### Example Usage
 
 ```java
-String conditionId = "conditionId";
+String conditionId = "osa";
 // Invoking the API call with sample inputs
-result.createGetTipIdsByConditionAsync(conditionId, new APICallBack<List<String>>() {
-    public void onSuccess(HttpContext context, List<String> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+result.createGetTipIdsByCondition(conditionId);
 
 ```
 
 
-### <a name="create_get_condition_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createGetConditionAsync") createGetConditionAsync
+### <a name="get_condition"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getCondition") getCondition
 
 > Returns metadata information about an single condition.
 
 
 ```java
-void createGetConditionAsync(
-        final String conditionId,
-        final APICallBack<ConditionResult> callBack)
+ConditionResult getCondition(final String conditionId)
 ```
 
 #### Parameters
@@ -711,29 +573,20 @@ void createGetConditionAsync(
 #### Example Usage
 
 ```java
-String conditionId = "conditionId";
+String conditionId = "osa";
 // Invoking the API call with sample inputs
-result.createGetConditionAsync(conditionId, new APICallBack<ConditionResult>() {
-    public void onSuccess(HttpContext context, ConditionResult response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+result.createGetCondition(conditionId);
 
 ```
 
 
-### <a name="create_submit_tip_feedback_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createSubmitTipFeedbackAsync") createSubmitTipFeedbackAsync
+### <a name="submit_tip_feedback"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.submitTipFeedback") submitTipFeedback
 
 > Submits feedback for an end-user on the indicated tip.
 
 
 ```java
-void createSubmitTipFeedbackAsync(
-        final UpdateTipFeedbackRequestDTO requestDTO,
-        final APICallBack<Object> callBack)
+void submitTipFeedback(final UpdateTipFeedbackRequestDTO requestDTO)
 ```
 
 #### Parameters
@@ -749,14 +602,7 @@ void createSubmitTipFeedbackAsync(
 try {
     UpdateTipFeedbackRequestDTO requestDTO = new UpdateTipFeedbackRequestDTO();
     // Invoking the API call with sample inputs
-    result.createSubmitTipFeedbackAsync(requestDTO, new APICallBack<void>() {
-        public void onSuccess(HttpContext context, void response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    result.createSubmitTipFeedback(requestDTO);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -764,40 +610,31 @@ try {
 ```
 
 
-### <a name="get_all_conditions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getAllConditionsAsync") getAllConditionsAsync
+### <a name="get_all_conditions"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getAllConditions") getAllConditions
 
 > Returns metadata information about all available conditions.
 
 
 ```java
-void getAllConditionsAsync(final APICallBack<List<ConditionResult>> callBack)
+List<ConditionResult> getAllConditions()
 ```
 
 #### Example Usage
 
 ```java
 // Invoking the API call with sample inputs
-result.getAllConditionsAsync(new APICallBack<List<ConditionResult>>() {
-    public void onSuccess(HttpContext context, List<ConditionResult> response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+result.getAllConditions();
 
 ```
 
 
-### <a name="create_submit_condition_feedback_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.createSubmitConditionFeedbackAsync") createSubmitConditionFeedbackAsync
+### <a name="submit_condition_feedback"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.submitConditionFeedback") submitConditionFeedback
 
 > Submits feedback for an end-user on the indicated condition.
 
 
 ```java
-void createSubmitConditionFeedbackAsync(
-        final UpdateConditionFeedbackRequestDTO requestDTO,
-        final APICallBack<Object> callBack)
+void submitConditionFeedback(final UpdateConditionFeedbackRequestDTO requestDTO)
 ```
 
 #### Parameters
@@ -813,14 +650,7 @@ void createSubmitConditionFeedbackAsync(
 try {
     UpdateConditionFeedbackRequestDTO requestDTO = new UpdateConditionFeedbackRequestDTO();
     // Invoking the API call with sample inputs
-    result.createSubmitConditionFeedbackAsync(requestDTO, new APICallBack<void>() {
-        public void onSuccess(HttpContext context, void response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    result.createSubmitConditionFeedback(requestDTO);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -828,15 +658,15 @@ try {
 ```
 
 
-### <a name="get_compute_result_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.getComputeResultAsync") getComputeResultAsync
+### <a name="compute_result"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.ResultController.computeResult") computeResult
 
 > Computes Results output for the given survey.
 
 
 ```java
-void getComputeResultAsync(
+ResultDTO computeResult(
         final String surveyIdentifier,
-        final APICallBack<ResultDTO> callBack)
+        final String sessionId)
 ```
 
 #### Parameters
@@ -844,6 +674,7 @@ void getComputeResultAsync(
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | surveyIdentifier |  ``` Required ```  | The identifier of the survey. |
+| sessionId |  ``` Optional ```  | The identifier of the session. |
 
 
 #### Example Usage
@@ -851,14 +682,7 @@ void getComputeResultAsync(
 ```java
 String surveyIdentifier = "surveyIdentifier";
 // Invoking the API call with sample inputs
-result.getComputeResultAsync(surveyIdentifier, new APICallBack<ResultDTO>() {
-    public void onSuccess(HttpContext context, ResultDTO response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+result.computeResult(surveyIdentifier);
 
 ```
 
@@ -875,15 +699,13 @@ The singleton instance of the ``` SessionController ``` class can be accessed fr
 SessionController session = client.getSession();
 ```
 
-### <a name="create_login_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.createLoginAsync") createLoginAsync
+### <a name="activate_session"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.activateSession") activateSession
 
 > Activates a session.
 
 
 ```java
-void createSessionAsync(
-        final SessionDTO sessionDTO,
-        final APICallBack<SessionDTO> callBack)
+SessionDTO activateSession(final SessionDTO sessionDTO)
 ```
 
 #### Parameters
@@ -899,14 +721,7 @@ void createSessionAsync(
 try {
     SessionDTO sessionDTO = new SessionDTO();
     // Invoking the API call with sample inputs
-    session.createLoginAsync(sessionDTO, new APICallBack<SessionDTO>() {
-        public void onSuccess(HttpContext context, SessionDTO response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    session.createSession(sessionDTO);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -914,65 +729,49 @@ try {
 ```
 
 
-### <a name="retrieve_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.retrieveAsync") retrieveAsync
+### <a name="retrieve_activated_session"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.retrieveActivatedSession") retrieveActivatedSession
 
 > Retrieves the details of the activated session.
 
 
 ```java
-void retrieveAsync(final APICallBack<SessionDTO> callBack)
+SessionDTO retrieveActivatedSession()
 ```
 
 #### Example Usage
 
 ```java
 // Invoking the API call with sample inputs
-session.retrieveAsync(new APICallBack<SessionDTO>() {
-    public void onSuccess(HttpContext context, SessionDTO response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+session.retrieve();
 
 ```
 
 
-### <a name="get_logout_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.getLogoutAsync") getLogoutAsync
+### <a name="deactivate_session"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.deactivateSession") deactivateSession
 
 > Deactivates the current session.
 
 
 ```java
-void getLogoutAsync(final APICallBack<Object> callBack)
+void deactivateSession()
 ```
 
 #### Example Usage
 
 ```java
 // Invoking the API call with sample inputs
-session.getLogoutAsync(new APICallBack<void>() {
-    public void onSuccess(HttpContext context, void response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+session.deactivateSession();
 
 ```
 
 
-### <a name="create_activate_session_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.createRegisterUserAsync") createRegisterUserAsync
+### <a name="create_session"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SessionController.createSession") createSession
 
 > Creates a new session with the provided information.
 
 
 ```java
-void createRegisterUserAsync(
-        final SessionDTO sessionDTO,
-        final APICallBack<SessionDTO> callBack)
+SessionDTO createSession(final SessionDTO sessionDTO)
 ```
 
 #### Parameters
@@ -988,14 +787,7 @@ void createRegisterUserAsync(
 try {
     SessionDTO sessionDTO = new SessionDTO();
     // Invoking the API call with sample inputs
-    session.createRegisterUserAsync(sessionDTO, new APICallBack<SessionDTO>() {
-        public void onSuccess(HttpContext context, SessionDTO response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    session.createCreateSession(sessionDTO);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -1015,17 +807,13 @@ The singleton instance of the ``` SurveyController ``` class can be accessed fro
 SurveyController survey = client.getSurvey();
 ```
 
-### <a name="get_matched_rules_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getMatchedRulesAsync") getMatchedRulesAsync
+### <a name="get_matched_rules"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getMatchedRules") getMatchedRules
 
-> DEVELOPMENT ONLY: Returns all rules which were matched in the computation of the session's survey state. This API is
-> 
-> only available in development environment. In all other environments it will result in a 404 (not found).
+> DEVELOPMENT ONLY: Returns all rules which were matched in the computation of the session's survey state. This API is only available in development environment. In all other environments it will result in a 404 (not found).
 
 
 ```java
-void getMatchedRulesAsync(
-        final String identifier,
-        final APICallBack<Object> callBack)
+void getMatchedRules(final String identifier)
 ```
 
 #### Parameters
@@ -1038,36 +826,22 @@ void getMatchedRulesAsync(
 #### Example Usage
 
 ```java
-String identifier = "identifier";
+String identifier = "sleep";
 // Invoking the API call with sample inputs
-survey.getMatchedRulesAsync(identifier, new APICallBack<void>() {
-    public void onSuccess(HttpContext context, void response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+survey.getMatchedRules(identifier);
 
 ```
 
 
-### <a name="post_survey_answers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.postSurveyAnswersAsync") postSurveyAnswersAsync
+### <a name="post_survey_answers"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.postSurveyAnswers") postSurveyAnswers
 
-> DEVELOPMENT ONLY: Updates all answers stored for a session for a survey to the given set of answers. This API is only
-> 
-> available in
-> 
-> development environment. In all other environments it will result in a 404 (not found). Returns all updated
-> 
-> answers.
+> DEVELOPMENT ONLY: Updates all answers stored for a session for a survey to the given set of answers. This API is only available in development environment. In all other environments it will result in a 404 (not found). Returns all updated answers.
 
 
 ```java
-void postSurveyAnswersAsync(
+void postSurveyAnswers(
         final String identifier,
-        final Object answers,
-        final APICallBack<Object> callBack)
+        final Object answers)
 ```
 
 #### Parameters
@@ -1082,17 +856,10 @@ void postSurveyAnswersAsync(
 
 ```java
 try {
-    String identifier = "identifier";
+    String identifier = "sleep";
     Object answers = new Object();
     // Invoking the API call with sample inputs
-    survey.postSurveyAnswersAsync(identifier, answers, new APICallBack<void>() {
-        public void onSuccess(HttpContext context, void response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    survey.postSurveyAnswers(identifier, answers);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
@@ -1100,19 +867,13 @@ try {
 ```
 
 
-### <a name="get_sense_input_values_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSenseInputValuesAsync") getSenseInputValuesAsync
+### <a name="get_sense_input_values"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSenseInputValues") getSenseInputValues
 
-> DEVELOPMENT ONLY: Similar to the GET /answers API, but instead returns answers mapped to their corresponding sense
-> 
-> values. This API is only available in development environment. In all other environments it will result in a 404
-> 
-> (not found).
+> DEVELOPMENT ONLY: Similar to the GET /answers API, but instead returns answers mapped to their corresponding sense values. This API is only available in development environment. In all other environments it will result in a 404 (not found).
 
 
 ```java
-void getSenseInputValuesAsync(
-        final String identifier,
-        final APICallBack<Object> callBack)
+void getSenseInputValues(final String identifier)
 ```
 
 #### Parameters
@@ -1125,31 +886,20 @@ void getSenseInputValuesAsync(
 #### Example Usage
 
 ```java
-String identifier = "identifier";
+String identifier = "sleep";
 // Invoking the API call with sample inputs
-survey.getSenseInputValuesAsync(identifier, new APICallBack<void>() {
-    public void onSuccess(HttpContext context, void response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+survey.getSenseInputValues(identifier);
 
 ```
 
 
-### <a name="create_reset_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.createResetSurveyStateAsync") createResetSurveyStateAsync
+### <a name="create_reset_survey_state"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.createResetSurveyState") createResetSurveyState
 
-> Resets the state of the survey for the current session. In other words, all the session's answers are removed and the
-> 
-> survey should start back at the beginning.
+> Resets the state of the survey for the current session. In other words, all the session's answers are removed and the survey should start back at the beginning.
 
 
 ```java
-void createResetSurveyStateAsync(
-        final String identifier,
-        final APICallBack<Object> callBack)
+void createResetSurveyState(final String identifier)
 ```
 
 #### Parameters
@@ -1162,33 +912,20 @@ void createResetSurveyStateAsync(
 #### Example Usage
 
 ```java
-String identifier = "identifier";
+String identifier = "sleep";
 // Invoking the API call with sample inputs
-survey.createResetSurveyStateAsync(identifier, new APICallBack<void>() {
-    public void onSuccess(HttpContext context, void response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+survey.createResetSurveyState(identifier);
 
 ```
 
 
-### <a name="get_survey_answers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSurveyAnswersAsync") getSurveyAnswersAsync
+### <a name="get_survey_answers"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSurveyAnswers") getSurveyAnswers
 
-> DEVELOPMENT ONLY: Gets all answers stored for a session for a given survey. This API is only available in development
-> 
-> environment. In
-> 
-> all other environments it will result in a 404 (not found).
+> DEVELOPMENT ONLY: Gets all answers stored for a session for a given survey. This API is only available in development environment. In all other environments it will result in a 404 (not found).
 
 
 ```java
-void getSurveyAnswersAsync(
-        final String identifier,
-        final APICallBack<Object> callBack)
+void getSurveyAnswers(final String identifier)
 ```
 
 #### Parameters
@@ -1201,29 +938,22 @@ void getSurveyAnswersAsync(
 #### Example Usage
 
 ```java
-String identifier = "identifier";
+String identifier = "sleep";
 // Invoking the API call with sample inputs
-survey.getSurveyAnswersAsync(identifier, new APICallBack<void>() {
-    public void onSuccess(HttpContext context, void response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+survey.getSurveyAnswers(identifier);
 
 ```
 
 
-### <a name="get_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSurveyStateAsync") getSurveyStateAsync
+### <a name="get_survey_state"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.getSurveyState") getSurveyState
 
 > Retrieves the state of a survey for the current session.
 
 
 ```java
-void getSurveyStateAsync(
+SurveyStateDTO getSurveyState(
         final String identifier,
-        final APICallBack<SurveyStateDTO> callBack)
+        final String sessionId)
 ```
 
 #### Parameters
@@ -1231,37 +961,29 @@ void getSurveyStateAsync(
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | identifier |  ``` Required ```  | The identifier of the survey. |
+| sessionId |  ``` Optional ```  | The identifier of the session. |
 
 
 #### Example Usage
 
 ```java
-String identifier = "identifier";
+String identifier = "sleep";
 // Invoking the API call with sample inputs
-survey.getSurveyStateAsync(identifier, new APICallBack<SurveyStateDTO>() {
-    public void onSuccess(HttpContext context, SurveyStateDTO response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
+survey.getSurveyState(identifier);
 
 ```
 
 
-### <a name="update_survey_state_async"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.updateSurveyStateAsync") updateSurveyStateAsync
+### <a name="update_survey_state"></a>![Method: ](https://apidocs.io/img/method.png "com.philips.ai.controllers.SurveyController.updateSurveyState") updateSurveyState
 
-> Updates the state of a survey for the current session, and returns the portion of the survey state necessary for the
-> 
-> client to render the survey based on the update.
+> Updates the state of a survey for the current session, and returns the portion of the survey state necessary for the client to render the survey based on the update.
 
 
 ```java
-void updateSurveyStateAsync(
+void updateSurveyState(
         final String identifier,
         final UpdateSurveyStateRequestDTO requestDTO,
-        final APICallBack<SurveyStateDTO> callBack)
+        final String sessionId)
 ```
 
 #### Parameters
@@ -1269,6 +991,7 @@ void updateSurveyStateAsync(
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | identifier |  ``` Required ```  | The identifier of the survey. |
+| sessionId |  ``` Optional ```  | The identifier of the session. |
 | requestDTO |  ``` Optional ```  | The update request object. |
 
 
@@ -1276,17 +999,10 @@ void updateSurveyStateAsync(
 
 ```java
 try {
-    String identifier = "identifier";
+    String identifier = "sleep";
     UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
     // Invoking the API call with sample inputs
-    survey.updateSurveyStateAsync(identifier, requestDTO, new APICallBack<SurveyStateDTO>() {
-        public void onSuccess(HttpContext context, SurveyStateDTO response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
+    survey.updateSurveyState(identifier, requestDTO);
 } catch(JsonProcessingException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
