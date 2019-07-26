@@ -2,7 +2,7 @@
 
 const Environments = {
     PRODUCTION: 'production',
-    defaultHost: 'https://philips-prod.apigee.net',
+    defaultHost: 'https://www.sleepapi.philips.com',
 };
 
 module.exports = Environments;
