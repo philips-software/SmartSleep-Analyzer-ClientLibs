@@ -14,11 +14,11 @@ public class Configuration {
 	/**
 	 * defaultHost value
 	 */
-	public static String defaultHost = "philips-prod.apigee.net";
+	public static String defaultHost = "www.sleepapi.philips.com";
 
 	public static String accessToken = "";
 
-	public static String accessHost = "philips-prod.apigee.net";
+	public static String accessHost = "www.sleepapi.philips.com";
 
 	public static String api_route = "smartsleep-analyzer";
 
