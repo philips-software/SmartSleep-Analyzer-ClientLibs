@@ -59,12 +59,12 @@ Tests can be run in a number of ways:
 
 ### Method 1 (Run all tests)
 
-1. Navigate to the `<repo-root>/test/` directory from command prompt.
+1. Navigate to the `<repo-root>/SSA-NodeJS/test/` directory from command prompt.
 2. Type `mocha --<YourClientId> --<YourClientSecret> *` to run all the tests.
 
 ### Method 2 (Run specific controller's tests)
 
-1. Navigate to the `<repo-root>/test/` directory from command prompt.
+1. Navigate to the `<repo-root>/SSA-NodeJS/test/` directory from command prompt.
 2. Edit the `clientid` and `secretKey` properties in the `Configuration.js` file with your Client Id and Secret.
 3. Type `mocha <ControllerFileName>` to run all the tests in that controller file.
 
