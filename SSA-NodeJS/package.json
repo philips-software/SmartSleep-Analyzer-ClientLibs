@@ -15,15 +15,16 @@
     "node": ">=4.2.4"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint": ">=4.18.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
   },
   "dependencies": {
-    "mocha": "^3.5.0",
     "chai": "^4.2.0",
+    "mocha": "^6.2.0",
     "moment": "^2.17.1",
     "request": "^2.88.0"
   },
@@ -43,5 +44,10 @@
       "strict": 0,
       "prefer-rest-params": 0
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philips-software/SmartSleep-Analyzer-ClientLibs.git"
+  },
+  "license": "SEE LICENSE IN ./LICENSE"
 }
