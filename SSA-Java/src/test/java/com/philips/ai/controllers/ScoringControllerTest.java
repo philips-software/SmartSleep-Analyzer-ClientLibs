@@ -356,14 +356,22 @@ public class ScoringControllerTest {
 	public void testGetComputableSenses() throws Throwable {
 		List<String> senseIds = new ArrayList<String>();
 		List<SenseDTO> result = new ArrayList<SenseDTO>();
+
+		// add osa sense inputs
 		senseIds.add("osa");
 		senseIds.add("sss");
+		senseIds.add("problemSnoring");
+
+		// add insomnia sense inputs
 		senseIds.add("problemSleeping");
 		senseIds.add("problemSleepiness");
 		senseIds.add("difficultyDuration");
 		senseIds.add("isi");
-
 		senseIds.add("sleepInitiation1");
+		senseIds.add("difficultyFallingAsleep");
+		senseIds.add("difficultyStayingAsleep");
+		senseIds.add("difficultyWakingEarly");
+
 		List<String> outputSenseIds = new ArrayList<String>();
 
 		// default test
