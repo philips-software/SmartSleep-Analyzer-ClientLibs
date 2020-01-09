@@ -466,7 +466,7 @@ public class ScoringControllerTest {
 		dict.put("sleepInitiation1", "difficultsomewhat");
 		dict.put("accidentRisk", true);
 		dict.put("alcoholFrequency", "n2to4permonth");
-		dict.put("caffeinatedDrinksPerDay", "none");
+		dict.put("caffeinatedDrinksPerDay", "nlessThan1");
 		dict.put("smokingFrequency", "notatall");
 		dict.put("difficultyDuration", "months3to6");
 		dict.put("difficultyFallingAsleep", "none");
