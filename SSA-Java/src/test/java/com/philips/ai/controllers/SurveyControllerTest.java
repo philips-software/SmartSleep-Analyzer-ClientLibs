@@ -146,7 +146,7 @@ public class SurveyControllerTest {
 	@Test
 	public void testGetSurveyStateSummary() throws Throwable {
 		SurveyStateSummaryDTO surveyStateSummaryDTO = analyzerClient.getSurvey().getSurveyStateSummary(identifier, null);
-		Assert.assertEquals((long)64, (long)surveyStateSummaryDTO.getStepsRemaining());
+		Assert.assertEquals((long)67, (long)surveyStateSummaryDTO.getStepsRemaining());
 	}
 
 	@Test

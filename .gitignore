@@ -67,3 +67,5 @@ SSA-Java/\.idea/
 # SSA-NodeJS/\.idea/
 
 SSA-NodeJS/\.idea/
+
+SSA-Java/target/
