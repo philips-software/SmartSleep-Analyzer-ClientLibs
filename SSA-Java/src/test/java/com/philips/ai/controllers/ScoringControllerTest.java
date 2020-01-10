@@ -313,13 +313,19 @@ public class ScoringControllerTest {
 	@Test
 	public void testGetComputableSleepProblemSenses() throws Throwable {
 		List<String> senseIds = new ArrayList<String>();
+		// add osa sense inputs
 		senseIds.add("osa");
 		senseIds.add("sss");
+		senseIds.add("problemSnoring");
+
+		// add insomnia sense inputs, except for difficultyWakingEarly
 		senseIds.add("problemSleeping");
 		senseIds.add("problemSleepiness");
 		senseIds.add("difficultyDuration");
 		senseIds.add("isi");
-		senseIds.add("sleepInitiation");
+		senseIds.add("sleepInitiation1");
+		senseIds.add("difficultyFallingAsleep");
+		senseIds.add("difficultyStayingAsleep");
 
 		List<SenseDTO> result;
 
@@ -330,13 +336,19 @@ public class ScoringControllerTest {
 	@Test
 	public void testGetComputableSleepProblemSenses_InvalidSenseId() throws Throwable {
 		List<String> senseIds = new ArrayList<String>();
+		// add osa sense inputs
 		senseIds.add("osa1");
 		senseIds.add("sss1");
+		senseIds.add("problemSnoring1");
+
+		// add insomnia sense inputs
 		senseIds.add("problemSleeping1");
 		senseIds.add("problemSleepiness1");
 		senseIds.add("difficultyDuration1");
 		senseIds.add("isi1");
-		senseIds.add("sleepInitiation1");
+		senseIds.add("sleepInitiation11");
+		senseIds.add("difficultyFallingAsleep1");
+		senseIds.add("difficultyStayingAsleep1");
 
 		List<SenseDTO> senseDTOs = analyzerClient.getScoring().getComputableSleepProblemSenses(senseIds);
 		Assert.assertEquals(0, senseDTOs.size());
@@ -356,14 +368,22 @@ public class ScoringControllerTest {
 	public void testGetComputableSenses() throws Throwable {
 		List<String> senseIds = new ArrayList<String>();
 		List<SenseDTO> result = new ArrayList<SenseDTO>();
+
+		// add osa sense inputs
 		senseIds.add("osa");
 		senseIds.add("sss");
+		senseIds.add("problemSnoring");
+
+		// add insomnia sense inputs
 		senseIds.add("problemSleeping");
 		senseIds.add("problemSleepiness");
 		senseIds.add("difficultyDuration");
 		senseIds.add("isi");
-
 		senseIds.add("sleepInitiation1");
+		senseIds.add("difficultyFallingAsleep");
+		senseIds.add("difficultyStayingAsleep");
+		senseIds.add("difficultyWakingEarly");
+
 		List<String> outputSenseIds = new ArrayList<String>();
 
 		// default test
@@ -458,7 +478,7 @@ public class ScoringControllerTest {
 		dict.put("sleepInitiation1", "difficultsomewhat");
 		dict.put("accidentRisk", true);
 		dict.put("alcoholFrequency", "n2to4permonth");
-		dict.put("caffeinatedDrinksPerDay", "none");
+		dict.put("caffeinatedDrinksPerDay", "nlessThan1");
 		dict.put("smokingFrequency", "notatall");
 		dict.put("difficultyDuration", "months3to6");
 		dict.put("difficultyFallingAsleep", "none");

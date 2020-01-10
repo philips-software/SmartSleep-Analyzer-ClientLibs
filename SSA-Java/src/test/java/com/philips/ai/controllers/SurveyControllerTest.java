@@ -130,7 +130,7 @@ public class SurveyControllerTest {
 	@Test
 	public void testGetSurveyState() throws Throwable {
 		SurveyStateDTO surveyStateDTO = analyzerClient.getSurvey().getSurveyState(identifier, null);
-		Assert.assertEquals("Are you currently under the care of a physician for depression and/or anxiety?",
+		Assert.assertEquals("What is your current age?",
 				surveyStateDTO.getQuestions().get(0).getText());
 	}
 
@@ -146,7 +146,7 @@ public class SurveyControllerTest {
 	@Test
 	public void testGetSurveyStateSummary() throws Throwable {
 		SurveyStateSummaryDTO surveyStateSummaryDTO = analyzerClient.getSurvey().getSurveyStateSummary(identifier, null);
-		Assert.assertEquals((long)64, (long)surveyStateSummaryDTO.getStepsRemaining());
+		Assert.assertEquals((long)67, (long)surveyStateSummaryDTO.getStepsRemaining());
 	}
 
 	@Test
@@ -161,8 +161,8 @@ public class SurveyControllerTest {
 	@Test
 	public void testGetQuestions() throws Throwable {
 		QuestionsDTO questionsDTO = analyzerClient.getSurvey().getQuestions(identifier, null, null);
-		Assert.assertEquals("demographics1", questionsDTO.getQuestions().get(0).getIdentifier());
-		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("demographics1"));
+		Assert.assertEquals("age", questionsDTO.getQuestions().get(0).getIdentifier());
+		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("age"));
 	}
 
 	@Test
@@ -202,16 +202,16 @@ public class SurveyControllerTest {
 	@Test
 	public void testPostAnswers() throws Throwable {
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<>();
-		answers.put("demographics1", false);
+		answers.put("age", 99);
 		QuestionsDTO questionsDTO = analyzerClient.getSurvey().postAnswers(identifier, answers, null);
-		Assert.assertEquals("sex", questionsDTO.getQuestions().get(0).getIdentifier());
-		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("sex"));
+		Assert.assertEquals("demographics1", questionsDTO.getQuestions().get(0).getIdentifier());
+		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("demographics1"));
 	}
 
 	@Test
 	public void testPostAnswers_InvalidInput() throws Throwable {
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<>();
-		answers.put("demographics1", true);
+		answers.put("sex", 99);
 		try {
 			analyzerClient.getSurvey().postAnswers(invalidIdentifier, answers, null);
 		} catch (Exception e) {
@@ -227,21 +227,21 @@ public class SurveyControllerTest {
 	@Test
 	public void testUpdateAnswers() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics1");
+		requestDTO.setStepRef("demographics4");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
-		answers.put("demographics1", false);
+		answers.put("age", 99);
 		requestDTO.setAnswers(answers);
 		QuestionsDTO questionsDTO = analyzerClient.getSurvey().updateAnswers(identifier, requestDTO, null);
-		Assert.assertEquals("sex", questionsDTO.getQuestions().get(0).getIdentifier());
-		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("sex"));
+		Assert.assertEquals("demographics1", questionsDTO.getQuestions().get(0).getIdentifier());
+		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("demographics1"));
 	}
 
 	@Test
 	public void testUpdateAnswers_InvalidInput() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics1");
+		requestDTO.setStepRef("demographics4");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<>();
-		answers.put("demographics1", true);
+		answers.put("age", 99);
 		requestDTO.setAnswers(answers);
 		try {
 			analyzerClient.getSurvey().updateAnswers(invalidIdentifier, requestDTO, null);
@@ -267,9 +267,9 @@ public class SurveyControllerTest {
 	@Test
 	public void testUpdateSurveyState() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics1");
+		requestDTO.setStepRef("demographics4");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
-		answers.put("demographics1", false);
+		answers.put("age", 99);
 		requestDTO.setAnswers(answers);
 		SurveyStateDTO surveyStateDTO = analyzerClient.getSurvey().updateSurveyState(identifier, null, requestDTO);
 		Assert.assertEquals("demographics", surveyStateDTO.getSectionStates().get(0).getIdentifier());
@@ -279,9 +279,9 @@ public class SurveyControllerTest {
 	@Test
 	public void testUpdateSurveyState_InvalidInput() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics1");
+		requestDTO.setStepRef("demographics4");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
-		answers.put("demographics1", true);
+		answers.put("age", 99);
 		requestDTO.setAnswers(answers);
 		try {
 			analyzerClient.getSurvey().updateSurveyState(invalidIdentifier, null, requestDTO);

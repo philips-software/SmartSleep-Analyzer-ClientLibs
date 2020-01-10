@@ -1,6 +1,6 @@
 {
   "name": "smartsleep-analyzer.test",
-  "version": "1.0.6-beta",
+  "version": "1.0.7-beta",
   "description": "",
   "main": "./Index.test.js",
   "scripts": {
