@@ -15,22 +15,22 @@ describe('Survey Controller Test Cases', function(){
   it('GetSurveyState Test case', function(done){
     SSA_ClientLib = lib(_config.clientid,_config.secretKey,function(success){
         SSA_ClientLib.SurveyController.getSurveyState(identifier).then(function(result) {
-          expect(result.questions[0].text).to.equal('Are you currently under the care of a physician for depression and/or anxiety?');
+          expect(result.questions[0].text).to.equal('What is your current age?');
           done();
         }).catch(done);
    })
   })
    //parameter for updateSurveyState test case.
   var requestDTO={
-    'stepRef': 'demographics1',
+    'stepRef': 'demographics4',
     'answers': {
-      'demographics1':true,
+      'age':99,
     }
   }
 
   //parameter for updateSurveyState test case.
   var rawPostAnswers={
-      'demographics1':true
+      'age':99
   }
 
   it('UpdateSurveyState Test case', function(done){
@@ -49,7 +49,7 @@ describe('Survey Controller Test Cases', function(){
 
   it('GetSurveyStateSummary Test case', function(done){
       SSA_ClientLib.SurveyController.getSurveyStateSummary(identifier, null).then(function(result) {
-          expect(result.stepsRemaining).to.equal(64);
+          expect(result.stepsRemaining).to.equal(67);
           done();
       }).catch(done);
   })
@@ -63,7 +63,7 @@ describe('Survey Controller Test Cases', function(){
 
   it('GetQuestions Test case', function(done){
       SSA_ClientLib.SurveyController.getQuestions(identifier, null, null).then(function(result) {
-          expect(result.questions[0].identifier).to.equal('demographics1');
+          expect(result.questions[0].identifier).to.equal('age');
           done();
       }).catch(done);
   })
@@ -105,7 +105,7 @@ describe('Survey Controller Test Cases', function(){
 
   it('PostAnswers Test case', function(done){
       SSA_ClientLib.SurveyController.postAnswers(identifier, rawPostAnswers, null).then(function(result) {
-          expect(result.questions[0].identifier).to.equal('sex');
+          expect(result.questions[0].identifier).to.equal('demographics1');
           done();
       }).catch(done);
   })
@@ -119,7 +119,7 @@ describe('Survey Controller Test Cases', function(){
 
   it('UpdateAnswers Test case', function(done){
       SSA_ClientLib.SurveyController.updateAnswers(identifier, requestDTO, null).then(function(result) {
-          expect(result.questions[0].identifier).to.equal('sex');
+          expect(result.questions[0].identifier).to.equal('demographics1');
           done();
       }).catch(done);
   })

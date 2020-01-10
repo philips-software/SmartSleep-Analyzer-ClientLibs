@@ -116,7 +116,7 @@ describe('Scoring Controller Test Cases', function(){
     'snoringDuration': 'nightmostof', 'snoringLoudness': 'snoringheardnextroom', 'snoringAnnoying': 'very', 'ess1': 'dozeslight', 'ess2': 'dozeslight', 'ess3': 'dozenever',
     'ess4': 'dozeslight', 'ess5': 'dozehigh', 'ess6': 'dozenever', 'ess7': 'dozeslight', 'ess8': 'dozeslight', 'fss1': 4, 'fss2': 4, 'fss3': 4, 'fss4': 4, 'fss5': 4,
     'fss6': 4, 'fss7': 4, 'fss8': 4, 'fss9': 4, 'sleepInitiation1': 'difficultsomewhat', 'accidentRisk': true, 'alcoholFrequency': 'n2to4permonth',
-    'caffeinatedDrinksPerDay': 'none', 'smokingFrequency': 'notatall', 'difficultyDuration': 'months3to6', 'difficultyFallingAsleep': 'none',
+    'caffeinatedDrinksPerDay': 'nlessThan1', 'smokingFrequency': 'notatall', 'difficultyDuration': 'months3to6', 'difficultyFallingAsleep': 'none',
     'difficultyStayingAsleep': 'none', 'difficultyWakingEarly': 'none',  'sleepPatternDissatisfaction': 'satisfied', 'impactNoticeable': 'noticeablebarely',
     'impactWorrying': 'worrieddistressedbarely', 'impactInterfering': 'interferingbarely'
   } 
@@ -135,7 +135,7 @@ describe('Scoring Controller Test Cases', function(){
     'snoringDuration': 'nightmostof', 'snoringLoudness': 'snoringheardnextroom', 'snoringAnnoying': 'very', 'ess1': 'dozeslight', 'ess2': 'dozeslight', 'ess3': 'dozenever',
     'ess4': 'dozeslight', 'ess5': 'dozehigh', 'ess6': 'dozenever', 'ess7': 'dozeslight', 'ess8': 'dozeslight', 'fss1': 4, 'fss2': 4, 'fss3': 4, 'fss4': 4, 'fss5': 4,
     'fss6': 4, 'fss7': 4, 'fss8': 4, 'fss9': 4, 'sleepInitiation1': 'difficultsomewhat', 'accidentRisk': true, 'alcoholFrequency': 'n2to4permonth',
-    'caffeinatedDrinksPerDay': 'none', 'smokingFrequency': 'notatall', 'difficultyDuration': 'months3to6', 'difficultyFallingAsleep': 'none',
+    'caffeinatedDrinksPerDay': 'nlessThan1', 'smokingFrequency': 'notatall', 'difficultyDuration': 'months3to6', 'difficultyFallingAsleep': 'none',
     'difficultyStayingAsleep': 'none', 'difficultyWakingEarly': 'none',  'sleepPatternDissatisfaction': 'satisfied', 'impactNoticeable': 'noticeablebarely',
     'impactWorrying': 'worrieddistressedbarely', 'impactInterfering': 'interferingbarely'
   }
@@ -175,7 +175,7 @@ describe('Scoring Controller Test Cases', function(){
     }).catch(done);
   })
 
-  var sleepProbsenseid = ['osa', 'sss', 'problemSleeping', 'problemSleepiness', 'difficultyDuration', 'isi', 'sleepInitiation']
+  var sleepProbsenseid = ['osa', 'sss', 'problemSnoring', 'problemSleeping', 'problemSleepiness', 'difficultyDuration', 'isi', 'sleepInitiation', 'difficultyFallingAsleep', 'difficultyStayingAsleep', 'difficultyWakingEarly']
   
   it('getcomputableSleepProblemSenses Test case', function(done){
     SSA_ClientLib.ScoringController.getcomputableSleepProblemSenses (sleepProbsenseid).then(function(result) {
@@ -184,7 +184,7 @@ describe('Scoring Controller Test Cases', function(){
     }).catch(done);
   })
 
-  var sleepProbsenseid_Invalid = ['osa1', 'sss1', 'problemSleeping1', 'problemSleepiness1', 'difficultyDuration1', 'isi1', 'sleepInitiation1']
+  var sleepProbsenseid_Invalid = ['osa1', 'sss1', 'problemSnoring1', 'problemSleeping1', 'problemSleepiness1', 'difficultyDuration1', 'isi1', 'sleepInitiation1', 'difficultyFallingAsleep1', 'difficultyStayingAsleep1', 'difficultyWakingEarly1']
   
   it('getcomputableSleepProblemSenses Invalid Test case', function(done){
     SSA_ClientLib.ScoringController.getcomputableSleepProblemSenses (sleepProbsenseid_Invalid).then(function(result) {
