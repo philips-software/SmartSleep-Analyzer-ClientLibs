@@ -146,7 +146,7 @@ public class SurveyControllerTest {
 	@Test
 	public void testGetSurveyStateSummary() throws Throwable {
 		SurveyStateSummaryDTO surveyStateSummaryDTO = analyzerClient.getSurvey().getSurveyStateSummary(identifier, null);
-		Assert.assertEquals((long)67, (long)surveyStateSummaryDTO.getStepsRemaining());
+		Assert.assertEquals((long)41, (long)surveyStateSummaryDTO.getStepsRemaining());
 	}
 
 	@Test
@@ -203,9 +203,14 @@ public class SurveyControllerTest {
 	public void testPostAnswers() throws Throwable {
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<>();
 		answers.put("age", 99);
+		answers.put("demographics1", false);
+		answers.put("height", "182.88");
+		answers.put("occupation", "unemployed");
+		answers.put("sex", "male");
+		answers.put("weight", "106.12244897959184");
 		QuestionsDTO questionsDTO = analyzerClient.getSurvey().postAnswers(identifier, answers, null);
-		Assert.assertEquals("demographics1", questionsDTO.getQuestions().get(0).getIdentifier());
-		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("demographics1"));
+		Assert.assertEquals("bedPartner", questionsDTO.getQuestions().get(0).getIdentifier());
+		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("bedPartner"));
 	}
 
 	@Test
@@ -230,10 +235,15 @@ public class SurveyControllerTest {
 		requestDTO.setStepRef("demographics4");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
 		answers.put("age", 99);
+		answers.put("demographics1", false);
+		answers.put("height", "182.88");
+		answers.put("occupation", "unemployed");
+		answers.put("sex", "male");
+		answers.put("weight", "106.12244897959184");
 		requestDTO.setAnswers(answers);
 		QuestionsDTO questionsDTO = analyzerClient.getSurvey().updateAnswers(identifier, requestDTO, null);
-		Assert.assertEquals("demographics1", questionsDTO.getQuestions().get(0).getIdentifier());
-		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("demographics1"));
+		Assert.assertEquals("bedPartner", questionsDTO.getQuestions().get(0).getIdentifier());
+		Assert.assertTrue(questionsDTO.getAnswersTemplate().containsKey("bedPartner"));
 	}
 
 	@Test
@@ -270,6 +280,11 @@ public class SurveyControllerTest {
 		requestDTO.setStepRef("demographics4");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
 		answers.put("age", 99);
+		answers.put("demographics1", false);
+		answers.put("height", "182.88");
+		answers.put("occupation", "unemployed");
+		answers.put("sex", "male");
+		answers.put("weight", "106.12244897959184");
 		requestDTO.setAnswers(answers);
 		SurveyStateDTO surveyStateDTO = analyzerClient.getSurvey().updateSurveyState(identifier, null, requestDTO);
 		Assert.assertEquals("demographics", surveyStateDTO.getSectionStates().get(0).getIdentifier());

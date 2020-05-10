@@ -28,6 +28,8 @@ public class ConditionDTO
     private String iconWhatYouCanDo;
     private String videoWhatYouCanDo;
     private String recommendation;
+    private String ctaHeader;
+    private String ctaDescription;
     private String risksHeader;
     private List<String> risks;
     private String benefitsHeader;
@@ -243,9 +245,41 @@ public class ConditionDTO
     public void setRecommendation (String value) { 
         this.recommendation = value;
     }
+    
+    /** GETTER
+     * The ctaHeader of the condition.
+     */
+    @JsonGetter("ctaHeader")
+    public String getCTAHeader ( ) { 
+        return this.ctaHeader;
+    }
+    
+    /** SETTER
+     * The ctaHeader of the condition.
+     */
+    @JsonSetter("ctaHeader")
+    public void setCTAHeader (String value) { 
+        this.ctaHeader = value;
+    }
+    
+    /** GETTER
+     * The ctaDescription of the condition.
+     */
+    @JsonGetter("ctaDescription")
+    public String getCTADescription ( ) { 
+        return this.ctaDescription;
+    }
+    
+    /** SETTER
+     * The ctaDescription of the condition.
+     */
+    @JsonSetter("ctaDescription")
+    public void setCTADescription (String value) { 
+        this.ctaDescription = value;
+    }
  
     /** GETTER
-     * The risk header of the conditon.
+     * The risk header of the condition.
      */
     @JsonGetter("risksHeader")
     public String getRisksHeader ( ) { 

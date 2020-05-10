@@ -33,6 +33,7 @@ public class QuestionDTO
     private Boolean optional;
     private String likertTextLow;
     private String likertTextHigh;
+    private String heading;
 
     /** GETTER
      * The identifier of the question.
@@ -326,4 +327,20 @@ public class QuestionDTO
         this.likertTextHigh = value;
     }
  
+    /** GETTER
+     * The displayable header of the question.
+     */
+    @JsonGetter("heading")
+    public String getHeading ( ) { 
+        return this.heading;
+    }
+    
+    /** SETTER
+     * The displayable header of the question.
+     */
+    @JsonSetter("heading")
+    public void setHeading (String value) { 
+        this.heading = value;
+    }
+    
 }

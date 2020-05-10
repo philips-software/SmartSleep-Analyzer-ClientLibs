@@ -163,6 +163,14 @@ public class QuestionDTOBuilder {
         questionDTO.setLikertTextHigh(likertTextHigh);
         return this;
     }
+    
+    /**
+     * Custom label to show on the low value end of likert questions.
+     */
+    public QuestionDTOBuilder heading(String heading) {
+        questionDTO.setHeading(heading);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

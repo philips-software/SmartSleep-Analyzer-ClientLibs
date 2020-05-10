@@ -34,6 +34,14 @@ public class StepStateDTOBuilder {
         return this;
     }
 
+    /** SETTER
+     * The identifier of a custom client renderer used to display the step.
+     */
+    public StepStateDTOBuilder renderer(String renderer) { 
+    	stepStateDTO.setRenderer(renderer);
+    	return this;
+    }
+
     /**
      * List of question identifiers for questions to be displayed on the step.
      */

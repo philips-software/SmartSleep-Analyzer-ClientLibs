@@ -21,17 +21,27 @@ describe('Survey Controller Test Cases', function(){
    })
   })
    //parameter for updateSurveyState test case.
-  var requestDTO={
-    'stepRef': 'demographics4',
-    'answers': {
-      'age':99,
-    }
-  }
+  var requestDTO = {
+    stepRef: "demographics4",
+    answers: {
+      age: "99",
+      demographics1: false,
+      height: "182.88",
+      occupation: "unemployed",
+      sex: "male",
+      weight: "106.12244897959184",
+    },
+  };
 
   //parameter for updateSurveyState test case.
-  var rawPostAnswers={
-      'age':99
-  }
+  var rawPostAnswers = {
+    age: "99",
+    demographics1: false,
+    height: "182.88",
+    occupation: "unemployed",
+    sex: "male",
+    weight: "106.12244897959184",
+  };
 
   it('UpdateSurveyState Test case', function(done){
       SSA_ClientLib.SurveyController.updateSurveyState(identifier, requestDTO).then(function(result) {
@@ -49,7 +59,7 @@ describe('Survey Controller Test Cases', function(){
 
   it('GetSurveyStateSummary Test case', function(done){
       SSA_ClientLib.SurveyController.getSurveyStateSummary(identifier, null).then(function(result) {
-          expect(result.stepsRemaining).to.equal(67);
+          expect(result.stepsRemaining).to.equal(41);
           done();
       }).catch(done);
   })
@@ -105,7 +115,7 @@ describe('Survey Controller Test Cases', function(){
 
   it('PostAnswers Test case', function(done){
       SSA_ClientLib.SurveyController.postAnswers(identifier, rawPostAnswers, null).then(function(result) {
-          expect(result.questions[0].identifier).to.equal('demographics1');
+          expect(result.questions[0].identifier).to.equal('bedPartner');
           done();
       }).catch(done);
   })
@@ -119,7 +129,7 @@ describe('Survey Controller Test Cases', function(){
 
   it('UpdateAnswers Test case', function(done){
       SSA_ClientLib.SurveyController.updateAnswers(identifier, requestDTO, null).then(function(result) {
-          expect(result.questions[0].identifier).to.equal('demographics1');
+          expect(result.questions[0].identifier).to.equal('bedPartner');
           done();
       }).catch(done);
   })

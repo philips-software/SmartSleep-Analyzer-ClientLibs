@@ -43,7 +43,7 @@ public class ScoringControllerTest {
 		for (SenseDTO senseDTO : result) {
 			questionList.add(senseDTO.getQuestionText());
 		}
-		Assert.assertEquals(20, questionList.size());
+		Assert.assertEquals(19, questionList.size());
 		Assert.assertTrue(questionList.contains("What is your current weight?"));
 
 	}
@@ -73,7 +73,7 @@ public class ScoringControllerTest {
 
 		}
 		Assert.assertTrue(senseIdList.contains("ess"));
-		Assert.assertEquals(17, senseIdList.size());
+		Assert.assertEquals(16, senseIdList.size());
 
 	}
 
@@ -106,7 +106,7 @@ public class ScoringControllerTest {
 			senseIdList.add(senseDTO.getId());
 		}
 		Assert.assertTrue(senseIdList.contains("breathingStopped"));
-		Assert.assertEquals(109, senseIdList.size());
+		Assert.assertEquals(100, senseIdList.size());
 
 	}
 
@@ -123,7 +123,7 @@ public class ScoringControllerTest {
 			senseIdList.add(senseDTO.getId());
 		}
 		Assert.assertTrue(senseIdList.contains("bmi"));
-		Assert.assertEquals(126, senseIdList.size());
+		Assert.assertEquals(116, senseIdList.size());
 
 	}
 
@@ -136,8 +136,8 @@ public class ScoringControllerTest {
 
 		result = analyzerClient.getScoring().getSense(senseId, locale);
 		List<SenseDependencyDTO> dependencies = result.getDependencies();
-		Assert.assertEquals("problemSnoring", dependencies.get(0).getSenseId());
-		Assert.assertEquals("osa50", dependencies.get(1).getSenseId());
+		Assert.assertEquals("osa50", dependencies.get(0).getSenseId());
+		Assert.assertEquals("ess", dependencies.get(1).getSenseId());
 		for (SenseDependencyDTO dependencyDTO : dependencies) {
 			senseIdList.add(dependencyDTO.getSenseId());
 		}
@@ -465,15 +465,6 @@ public class ScoringControllerTest {
 		dict.put("ess6", "dozenever");
 		dict.put("ess7", "dozeslight");
 		dict.put("ess8", "dozeslight");
-		dict.put("fss1", 4);
-		dict.put("fss2", 4);
-		dict.put("fss3", 4);
-		dict.put("fss4", 4);
-		dict.put("fss5", 4);
-		dict.put("fss6", 4);
-		dict.put("fss8", 4);
-		dict.put("fss9", 4);
-		dict.put("fss7", 4);
 
 		dict.put("sleepInitiation1", "difficultsomewhat");
 		dict.put("accidentRisk", true);

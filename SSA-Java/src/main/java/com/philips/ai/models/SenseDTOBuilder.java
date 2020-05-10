@@ -66,6 +66,14 @@ public class SenseDTOBuilder {
         senseDTO.setQuestionText(questionText);
         return this;
     }
+    
+    /**
+     * Information about the answers expected for any non-computed senses.
+     */
+    public SenseDTOBuilder answerInfo(AnswerInfoDTO answerInfo) {
+        senseDTO.setAnswerInfo(answerInfo);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -72,6 +72,16 @@ public class ConditionResultBuilder {
         conditionResult.setRecommendation(recommendation);
         return this;
     }
+    
+    public ConditionResultBuilder ctaHeader(String ctaHeader) {
+    	conditionResult.setCTAHeader(ctaHeader);
+        return this;
+    }
+    
+    public ConditionResultBuilder ctaDescription(String ctaDescription) {
+    	conditionResult.setCTADescription(ctaDescription);
+        return this;
+    }
 
     public ConditionResultBuilder risksHeader(String risksHeader) {
         conditionResult.setRisksHeader(risksHeader);

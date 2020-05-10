@@ -26,6 +26,8 @@ public class ConditionResult
     private String iconWhatYouCanDo;
     private String videoWhatYouCanDo;
     private String recommendation;
+    private String ctaHeader;
+    private String ctaDescription;
     private String risksHeader;
     private List<String> risks;
     private String benefitsHeader;
@@ -37,7 +39,7 @@ public class ConditionResult
     private List<String> tipIdentifiers;
     private List<String> tidbitIdentifiers;
     /** GETTER
-     * TODO: Write general description for this method
+     * The title of the condition result.
      */
     @JsonGetter("title")
     public String getTitle ( ) { 
@@ -45,7 +47,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The title of the condition result.
      */
     @JsonSetter("title")
     public void setTitle (String value) { 
@@ -53,7 +55,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The diagnosis of the condition result.
      */
     @JsonGetter("diagnosis")
     public String getDiagnosis ( ) { 
@@ -61,7 +63,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The diagnosis of the condition result.
      */
     @JsonSetter("diagnosis")
     public void setDiagnosis (String value) { 
@@ -69,7 +71,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The explanation of the condition result.
      */
     @JsonGetter("explanation")
     public String getExplanation ( ) { 
@@ -77,7 +79,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The explanation of the condition result.
      */
     @JsonSetter("explanation")
     public void setExplanation (String value) { 
@@ -85,7 +87,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The description of the condition result.
      */
     @JsonGetter("description")
     public String getDescription ( ) { 
@@ -93,7 +95,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The description of the condition result.
      */
     @JsonSetter("description")
     public void setDescription (String value) { 
@@ -101,7 +103,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The living of the condition result.
      */
     @JsonGetter("living")
     public String getLiving ( ) { 
@@ -109,7 +111,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The living of the condition result.
      */
     @JsonSetter("living")
     public void setLiving (String value) { 
@@ -117,7 +119,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The videoLiving of the condition result.
      */
     @JsonGetter("videoLiving")
     public String getVideoLiving ( ) { 
@@ -125,7 +127,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The videoLiving of the condition result.
      */
     @JsonSetter("videoLiving")
     public void setVideoLiving (String value) { 
@@ -133,7 +135,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The iconAbout of the condition result.
      */
     @JsonGetter("iconAbout")
     public String getIconAbout ( ) { 
@@ -141,7 +143,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The iconAbout of the condition result.
      */
     @JsonSetter("iconAbout")
     public void setIconAbout (String value) { 
@@ -149,7 +151,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The iconRisks of the condition result.
      */
     @JsonGetter("iconRisks")
     public String getIconRisks ( ) { 
@@ -157,7 +159,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The iconRisks of the condition result.
      */
     @JsonSetter("iconRisks")
     public void setIconRisks (String value) { 
@@ -165,7 +167,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The iconWhatYouCanDo of the condition result.
      */
     @JsonGetter("iconWhatYouCanDo")
     public String getIconWhatYouCanDo ( ) { 
@@ -173,7 +175,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The iconWhatYouCanDo of the condition result.
      */
     @JsonSetter("iconWhatYouCanDo")
     public void setIconWhatYouCanDo (String value) { 
@@ -181,7 +183,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The videoWhatYouCanDo of the condition result.
      */
     @JsonGetter("videoWhatYouCanDo")
     public String getVideoWhatYouCanDo ( ) { 
@@ -189,7 +191,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The videoWhatYouCanDo of the condition result.
      */
     @JsonSetter("videoWhatYouCanDo")
     public void setVideoWhatYouCanDo (String value) { 
@@ -197,7 +199,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The recommendation of the condition result.
      */
     @JsonGetter("recommendation")
     public String getRecommendation ( ) { 
@@ -205,15 +207,47 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The recommendation of the condition result.
      */
     @JsonSetter("recommendation")
     public void setRecommendation (String value) { 
         this.recommendation = value;
     }
+    
+    /** GETTER
+     * The ctaHeader of the condition result.
+     */
+    @JsonGetter("ctaHeader")
+    public String getCTAHeader ( ) { 
+        return this.ctaHeader;
+    }
+    
+    /** SETTER
+     * The ctaHeader of the condition result.
+     */
+    @JsonSetter("ctaHeader")
+    public void setCTAHeader (String value) { 
+        this.ctaHeader = value;
+    }
+    
+    /** GETTER
+     * The ctaDescription of the condition result.
+     */
+    @JsonGetter("ctaDescription")
+    public String getCTADescription ( ) { 
+        return this.ctaDescription;
+    }
+    
+    /** SETTER
+     * The ctaDescription of the condition result.
+     */
+    @JsonSetter("ctaDescription")
+    public void setCTADescription (String value) { 
+        this.ctaDescription = value;
+    }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The risksHeader of the condition result.
      */
     @JsonGetter("risksHeader")
     public String getRisksHeader ( ) { 
@@ -221,7 +255,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The risksHeader of the condition result.
      */
     @JsonSetter("risksHeader")
     public void setRisksHeader (String value) { 
@@ -229,7 +263,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The risks of the condition result.
      */
     @JsonGetter("risks")
     public List<String> getRisks ( ) { 
@@ -237,7 +271,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The risks of the condition result.
      */
     @JsonSetter("risks")
     public void setRisks (List<String> value) { 
@@ -245,7 +279,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The benefitsHeader of the condition result.
      */
     @JsonGetter("benefitsHeader")
     public String getBenefitsHeader ( ) { 
@@ -253,7 +287,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The benefitsHeader of the condition result.
      */
     @JsonSetter("benefitsHeader")
     public void setBenefitsHeader (String value) { 
@@ -261,7 +295,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The benefits of the condition result.
      */
     @JsonGetter("benefits")
     public List<String> getBenefits ( ) { 
@@ -269,7 +303,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The benefits of the condition result.
      */
     @JsonSetter("benefits")
     public void setBenefits (List<String> value) { 
@@ -277,7 +311,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The whileWaiting of the condition result.
      */
     @JsonGetter("whileWaiting")
     public String getWhileWaiting ( ) { 
@@ -285,7 +319,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The whileWaiting of the condition result.
      */
     @JsonSetter("whileWaiting")
     public void setWhileWaiting (String value) { 
@@ -293,7 +327,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The identifier of the condition result.
      */
     @JsonGetter("identifier")
     public String getIdentifier ( ) { 
@@ -301,7 +335,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The identifier of the condition result.
      */
     @JsonSetter("identifier")
     public void setIdentifier (String value) { 
@@ -309,7 +343,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The riskRating of the condition result.
      */
     @JsonGetter("riskRating")
     public Integer getRiskRating ( ) { 
@@ -317,7 +351,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The riskRating of the condition result.
      */
     @JsonSetter("riskRating")
     public void setRiskRating (Integer value) { 
@@ -325,7 +359,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The classification of the condition result.
      */
     @JsonGetter("classification")
     public String getClassification ( ) { 
@@ -333,7 +367,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The classification of the condition result.
      */
     @JsonSetter("classification")
     public void setClassification (String value) { 
@@ -341,7 +375,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The tipIdentifiers of the condition result.
      */
     @JsonGetter("tipIdentifiers")
     public List<String> getTipIdentifiers ( ) { 
@@ -349,7 +383,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The tipIdentifiers of the condition result.
      */
     @JsonSetter("tipIdentifiers")
     public void setTipIdentifiers (List<String> value) { 
@@ -357,7 +391,7 @@ public class ConditionResult
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * The tidbitIdentifiers of the condition result.
      */
     @JsonGetter("tidbitIdentifiers")
     public List<String> getTidbitIdentifiers ( ) { 
@@ -365,7 +399,7 @@ public class ConditionResult
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * The tidbitIdentifiers of the condition result.
      */
     @JsonSetter("tidbitIdentifiers")
     public void setTidbitIdentifiers (List<String> value) { 

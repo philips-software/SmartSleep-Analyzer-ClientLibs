@@ -31,6 +31,7 @@ class QuestionDTO extends BaseModel {
         this.optional = this.constructor.getValue(obj.optional);
         this.likertTextLow = this.constructor.getValue(obj.likertTextLow);
         this.likertTextHigh = this.constructor.getValue(obj.likertTextHigh);
+        this.heading = this.constructor.getValue(obj.heading);
     }
 
     /**
@@ -57,6 +58,7 @@ class QuestionDTO extends BaseModel {
             { name: 'optional', realName: 'optional' },
             { name: 'likertTextLow', realName: 'likertTextLow' },
             { name: 'likertTextHigh', realName: 'likertTextHigh' },
+            { name: 'heading', realName: 'heading' }
         ]);
     }
 
