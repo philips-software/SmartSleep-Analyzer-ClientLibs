@@ -21,6 +21,7 @@ public class SenseDTO
     private Boolean sleepProblem;
     private List<SenseDependencyDTO> dependencies;
     private String questionText;
+    private AnswerInfoDTO answerInfo;
     /** GETTER
      * The id of the sense.
      */
@@ -117,6 +118,22 @@ public class SenseDTO
     @JsonSetter("questionText")
     public void setQuestionText (String value) { 
         this.questionText = value;
+    }
+    
+    /** GETTER
+     * Information about the answers expected for any non-computed senses.
+     */
+    @JsonGetter("answerInfo")
+    public AnswerInfoDTO getAnswerInfo ( ) { 
+        return this.answerInfo;
+    }
+    
+    /** SETTER
+     * Information about the answers expected for any non-computed senses.
+     */
+    @JsonSetter("answerInfo")
+    public void setAnswerInfo (AnswerInfoDTO value) { 
+        this.answerInfo = value;
     }
  
 }

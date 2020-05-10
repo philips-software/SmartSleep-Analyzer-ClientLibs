@@ -19,6 +19,7 @@ class SenseDTO extends BaseModel {
         this.sleepProblem = this.constructor.getValue(obj.sleepProblem);
         this.dependencies = this.constructor.getValue(obj.dependencies);
         this.questionText = this.constructor.getValue(obj.questionText);
+        this.answerInfo = this.constructor.getValue(obj.answerInfo);
     }
 
     /**
@@ -38,6 +39,7 @@ class SenseDTO extends BaseModel {
                 type: 'SenseDependencyDTO',
             },
             { name: 'questionText', realName: 'questionText' },
+            { name: 'answerInfo', realName: 'answerInfo', type: 'AnswerInfoDTO' },
         ]);
     }
 

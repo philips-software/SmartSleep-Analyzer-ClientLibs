@@ -15,6 +15,7 @@ class StepStateDTO extends BaseModel {
         if (obj === undefined || obj === null) return;
         this.identifier = this.constructor.getValue(obj.identifier);
         this.sectionRef = this.constructor.getValue(obj.sectionRef);
+        this.renderer = this.constructor.getValue(obj.renderer);
         this.questionRefs = this.constructor.getValue(obj.questionRefs);
         this.heading = this.constructor.getValue(obj.heading);
     }
@@ -27,6 +28,7 @@ class StepStateDTO extends BaseModel {
         return super.mappingInfo().concat([
             { name: 'identifier', realName: 'identifier' },
             { name: 'sectionRef', realName: 'sectionRef' },
+            { name: 'renderer', realName: 'renderer' },
             { name: 'questionRefs', realName: 'questionRefs', array: true },
             { name: 'heading', realName: 'heading' },
         ]);

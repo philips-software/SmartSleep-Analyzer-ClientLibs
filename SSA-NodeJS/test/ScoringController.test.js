@@ -114,12 +114,11 @@ describe('Scoring Controller Test Cases', function(){
     'shiftWorker': false, 'problemSleeping': 0, 'problemSleepiness': 0, 'problemSnoring': 10, 'problemPartnerSnoring': 0, 'problemOther': '', 'weight': '87', 'height': '180',
     'snoringBotherOthers': 'yes', 'breathingStopped': 'no', 'highBloodPressure': 'no', 'snoringOnBack': 'yes', 'noseOftenBlocked': 'no', 'snoringFrequency': 'nightssome',
     'snoringDuration': 'nightmostof', 'snoringLoudness': 'snoringheardnextroom', 'snoringAnnoying': 'very', 'ess1': 'dozeslight', 'ess2': 'dozeslight', 'ess3': 'dozenever',
-    'ess4': 'dozeslight', 'ess5': 'dozehigh', 'ess6': 'dozenever', 'ess7': 'dozeslight', 'ess8': 'dozeslight', 'fss1': 4, 'fss2': 4, 'fss3': 4, 'fss4': 4, 'fss5': 4,
-    'fss6': 4, 'fss7': 4, 'fss8': 4, 'fss9': 4, 'sleepInitiation1': 'difficultsomewhat', 'accidentRisk': true, 'alcoholFrequency': 'n2to4permonth',
+    'ess4': 'dozeslight', 'ess5': 'dozehigh', 'ess6': 'dozenever', 'ess7': 'dozeslight', 'ess8': 'dozeslight', 'sleepInitiation1': 'difficultsomewhat', 'accidentRisk': true, 'alcoholFrequency': 'n2to4permonth',
     'caffeinatedDrinksPerDay': 'nlessThan1', 'smokingFrequency': 'notatall', 'difficultyDuration': 'months3to6', 'difficultyFallingAsleep': 'none',
     'difficultyStayingAsleep': 'none', 'difficultyWakingEarly': 'none',  'sleepPatternDissatisfaction': 'satisfied', 'impactNoticeable': 'noticeablebarely',
     'impactWorrying': 'worrieddistressedbarely', 'impactInterfering': 'interferingbarely'
-  } 
+  }
   
   it('computeIntermediateAndSleepProblemSenses Test case', function(done){
     SSA_ClientLib.ScoringController.computeIntermediateAndSleepProblemSenses(css_para).then(function(result) {
@@ -133,8 +132,7 @@ describe('Scoring Controller Test Cases', function(){
     'shiftWorker': false, 'problemSleeping': 0, 'problemSleepiness': 0, 'problemSnoring': 10, 'problemPartnerSnoring': 0, 'problemOther': '', 'weight': '87', 'height': '180',
     'snoringBotherOthers': 'yes', 'breathingStopped': 'no', 'highBloodPressure': 'no', 'snoringOnBack': 'yes', 'noseOftenBlocked': 'no', 'snoringFrequency': 'nightssome',
     'snoringDuration': 'nightmostof', 'snoringLoudness': 'snoringheardnextroom', 'snoringAnnoying': 'very', 'ess1': 'dozeslight', 'ess2': 'dozeslight', 'ess3': 'dozenever',
-    'ess4': 'dozeslight', 'ess5': 'dozehigh', 'ess6': 'dozenever', 'ess7': 'dozeslight', 'ess8': 'dozeslight', 'fss1': 4, 'fss2': 4, 'fss3': 4, 'fss4': 4, 'fss5': 4,
-    'fss6': 4, 'fss7': 4, 'fss8': 4, 'fss9': 4, 'sleepInitiation1': 'difficultsomewhat', 'accidentRisk': true, 'alcoholFrequency': 'n2to4permonth',
+    'ess4': 'dozeslight', 'ess5': 'dozehigh', 'ess6': 'dozenever', 'ess7': 'dozeslight', 'ess8': 'dozeslight', 'sleepInitiation1': 'difficultsomewhat', 'accidentRisk': true, 'alcoholFrequency': 'n2to4permonth',
     'caffeinatedDrinksPerDay': 'nlessThan1', 'smokingFrequency': 'notatall', 'difficultyDuration': 'months3to6', 'difficultyFallingAsleep': 'none',
     'difficultyStayingAsleep': 'none', 'difficultyWakingEarly': 'none',  'sleepPatternDissatisfaction': 'satisfied', 'impactNoticeable': 'noticeablebarely',
     'impactWorrying': 'worrieddistressedbarely', 'impactInterfering': 'interferingbarely'

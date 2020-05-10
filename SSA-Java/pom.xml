@@ -6,7 +6,7 @@
 
 	<groupId>com.philips.ai</groupId>
 	<artifactId>smartsleep-analyzer</artifactId>
-	<version>1.0.7-beta</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 	<name>smartsleep-analyzer</name>
 	<description>Client library for interacting with the Philips SmartSleep Analyzer.</description>

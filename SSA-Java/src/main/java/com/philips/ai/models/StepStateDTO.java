@@ -19,6 +19,7 @@ public class StepStateDTO
     private String sectionRef;
     private List<String> questionRefs;
     private String heading;
+    private String renderer;
     /** GETTER
      * The identifier of the step.
      */
@@ -49,6 +50,22 @@ public class StepStateDTO
     @JsonSetter("sectionRef")
     public void setSectionRef (String value) { 
         this.sectionRef = value;
+    }
+    
+    /** GETTER
+     * The identifier of a custom client renderer used to display the step.
+     */
+    @JsonGetter("renderer")
+    public String getRenderer ( ) { 
+        return this.renderer;
+    }
+    
+    /** SETTER
+     * The identifier of a custom client renderer used to display the step.
+     */
+    @JsonSetter("renderer")
+    public void setRenderer (String value) { 
+        this.renderer = value;
     }
  
     /** GETTER

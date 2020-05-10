@@ -121,6 +121,22 @@ public class ConditionDTOBuilder {
         conditionDTO.setRecommendation(recommendation);
         return this;
     }
+    
+    /**
+     * The ctaHeader of the condition.
+     */
+    public ConditionDTOBuilder ctaHeader(String ctaHeader) {
+        conditionDTO.setCTAHeader(ctaHeader);
+        return this;
+    }
+    
+    /**
+     * The ctaDescription of the condition.
+     */
+    public ConditionDTOBuilder ctaDescription(String ctaDescription) {
+        conditionDTO.setCTADescription(ctaDescription);
+        return this;
+    }
 
     /**
      * The risk header of the conditon.

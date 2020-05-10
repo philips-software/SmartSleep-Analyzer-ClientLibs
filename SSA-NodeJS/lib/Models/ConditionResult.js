@@ -24,6 +24,8 @@ class ConditionResult extends BaseModel {
         this.iconWhatYouCanDo = this.constructor.getValue(obj.iconWhatYouCanDo);
         this.videoWhatYouCanDo = this.constructor.getValue(obj.videoWhatYouCanDo);
         this.recommendation = this.constructor.getValue(obj.recommendation);
+        this.ctaHeader = this.constructor.getValue(obj.ctaHeader);
+        this.ctaDescription = this.constructor.getValue(obj.ctaDescription);
         this.risksHeader = this.constructor.getValue(obj.risksHeader);
         this.risks = this.constructor.getValue(obj.risks);
         this.benefitsHeader = this.constructor.getValue(obj.benefitsHeader);
@@ -53,6 +55,8 @@ class ConditionResult extends BaseModel {
             { name: 'iconWhatYouCanDo', realName: 'iconWhatYouCanDo' },
             { name: 'videoWhatYouCanDo', realName: 'videoWhatYouCanDo' },
             { name: 'recommendation', realName: 'recommendation' },
+            { name: 'ctaHeader', realName: 'ctaHeader' },
+            { name: 'ctaDescription', realName: 'ctaDescription' },
             { name: 'risksHeader', realName: 'risksHeader' },
             { name: 'risks', realName: 'risks', array: true },
             { name: 'benefitsHeader', realName: 'benefitsHeader' },
