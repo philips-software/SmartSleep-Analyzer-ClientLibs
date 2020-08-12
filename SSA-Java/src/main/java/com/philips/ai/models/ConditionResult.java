@@ -26,8 +26,8 @@ public class ConditionResult
     private String iconWhatYouCanDo;
     private String videoWhatYouCanDo;
     private String recommendation;
-    private String ctaHeader;
-    private String ctaDescription;
+    private List<String> recommendedProductIdentifiers;
+    private List<String> relatedProductIdentifiers;
     private String risksHeader;
     private List<String> risks;
     private String benefitsHeader;
@@ -215,36 +215,36 @@ public class ConditionResult
     }
     
     /** GETTER
-     * The ctaHeader of the condition result.
+     * The recommended product identifiers associated with the condition result.
      */
-    @JsonGetter("ctaHeader")
-    public String getCTAHeader ( ) { 
-        return this.ctaHeader;
-    }
-    
+    @JsonGetter("recommendedProductIdentifiers")
+    public List<String> getRecommendedProductIdentifiers() {
+		return recommendedProductIdentifiers;
+	}
+
     /** SETTER
-     * The ctaHeader of the condition result.
+     * The recommended product identifiers associated with the condition result.
      */
-    @JsonSetter("ctaHeader")
-    public void setCTAHeader (String value) { 
-        this.ctaHeader = value;
-    }
-    
-    /** GETTER
-     * The ctaDescription of the condition result.
+    @JsonSetter("recommendedProductIdentifiers")
+    public void setRecommendedProductIdentifiers(List<String> value) {
+		this.recommendedProductIdentifiers = value;
+	}
+
+	/** GETTER
+     * The related product identifiers associated with the condition result.
      */
-    @JsonGetter("ctaDescription")
-    public String getCTADescription ( ) { 
-        return this.ctaDescription;
-    }
-    
+    @JsonGetter("relatedProductIdentifiers")
+	public List<String> getRelatedProductIdentifiers() {
+		return relatedProductIdentifiers;
+	}
+
     /** SETTER
-     * The ctaDescription of the condition result.
+     * The related product identifiers associated with the condition result.
      */
-    @JsonSetter("ctaDescription")
-    public void setCTADescription (String value) { 
-        this.ctaDescription = value;
-    }
+    @JsonSetter("relatedProductIdentifiers")
+    public void setRelatedProductIdentifiers(List<String> value) {
+		this.relatedProductIdentifiers = value;
+	}
  
     /** GETTER
      * The risksHeader of the condition result.

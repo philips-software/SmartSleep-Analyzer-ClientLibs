@@ -21,11 +21,11 @@ describe('Survey Controller Test Cases', function(){
    })
   })
    //parameter for updateSurveyState test case.
-  var requestDTO = {
-    stepRef: "demographics4",
+   var requestDTO = {
+    stepRef: "demographicsDetails",
     answers: {
       age: "99",
-      demographics1: false,
+      underPhysician: false,
       height: "182.88",
       occupation: "unemployed",
       sex: "male",
@@ -36,7 +36,7 @@ describe('Survey Controller Test Cases', function(){
   //parameter for updateSurveyState test case.
   var rawPostAnswers = {
     age: "99",
-    demographics1: false,
+    underPhysician: false,
     height: "182.88",
     occupation: "unemployed",
     sex: "male",

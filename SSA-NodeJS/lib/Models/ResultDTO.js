@@ -16,6 +16,7 @@ class ResultDTO extends BaseModel {
         this.conditions = this.constructor.getValue(obj.conditions);
         this.tips = this.constructor.getValue(obj.tips);
         this.tidbits = this.constructor.getValue(obj.tidbits);
+        this.products = this.constructor.getValue(obj.products);
         this.calculations = this.constructor.getValue(obj.calculations);
         this.senseValues = this.constructor.getValue(obj.senseValues);
         this.sessionId = this.constructor.getValue(obj.sessionId);
@@ -30,6 +31,7 @@ class ResultDTO extends BaseModel {
             { name: 'conditions', realName: 'conditions', array: true, type: 'ConditionDTO' },
             { name: 'tips', realName: 'tips', array: true, type: 'TipDTO' },
             { name: 'tidbits', realName: 'tidbits', array: true, type: 'TidbitDTO' },
+            { name: 'products', realName: 'products', array: true, type: 'ProductDTO' },
             { name: 'calculations', realName: 'calculations' },
             { name: 'senseValues', realName: 'senseValues' },
             { name: 'sessionId', realName: 'sessionId' },
