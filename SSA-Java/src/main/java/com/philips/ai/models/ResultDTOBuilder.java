@@ -41,6 +41,14 @@ public class ResultDTOBuilder {
         resultDTO.setTidbits(tidbits);
         return this;
     }
+    
+    /**
+     * The related products identified for all conditions.
+     */
+    public ResultDTOBuilder products(List<ProductDTO> products) {
+        resultDTO.setProducts(products);
+        return this;
+    }
 
     /**
      * Custom calculations that can be used by the client.

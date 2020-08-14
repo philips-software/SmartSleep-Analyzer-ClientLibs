@@ -14,6 +14,7 @@ public class ResultDTO
     private List<ConditionDTO> conditions;
     private List<TipDTO> tips;
     private List<TidbitDTO> tidbits;
+    private List<ProductDTO> products;
     private LinkedHashMap<String, Object> calculations;
     private LinkedHashMap<String, Object> senseValues;
     
@@ -80,6 +81,22 @@ public class ResultDTO
     public void setTidbits (List<TidbitDTO> value) { 
         this.tidbits = value;
     }
+    
+    /** GETTER
+     * The related products identified for all conditions.
+     */
+    @JsonGetter("products")
+    public List<ProductDTO> getProducts() {
+		return products;
+	}
+
+    /** SETTER
+     * The related products identified for all conditions.
+     */
+    @JsonSetter("products")
+    public void setProducts(List<ProductDTO> value) {
+		this.products = value;
+	}
  
     /** GETTER
      * Custom calculations that can be used by the client.

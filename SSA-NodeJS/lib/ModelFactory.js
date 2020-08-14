@@ -16,6 +16,7 @@ const UpdateConditionFeedbackRequestDTO = require('../lib/Models/UpdateCondition
 const TidbitDTO = require('../lib/Models/TidbitDTO');
 const SenseDTO = require('../lib/Models/SenseDTO');
 const TipDTO = require('../lib/Models/TipDTO');
+const ProductDTO = require('../lib/Models/ProductDTO');
 const ResultDTO = require('../lib/Models/ResultDTO');
 const QuestionDTO = require('../lib/Models/QuestionDTO');
 const ConditionDTO = require('../lib/Models/ConditionDTO');
@@ -38,6 +39,7 @@ const classMap = {
     TidbitDTO,
     SenseDTO,
     TipDTO,
+    ProductDTO,
     ResultDTO,
     QuestionDTO,
     ConditionDTO,

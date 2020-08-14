@@ -203,7 +203,7 @@ public class SurveyControllerTest {
 	public void testPostAnswers() throws Throwable {
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<>();
 		answers.put("age", 99);
-		answers.put("demographics1", false);
+		answers.put("underPhysician", false);
 		answers.put("height", "182.88");
 		answers.put("occupation", "unemployed");
 		answers.put("sex", "male");
@@ -216,7 +216,7 @@ public class SurveyControllerTest {
 	@Test
 	public void testPostAnswers_InvalidInput() throws Throwable {
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<>();
-		answers.put("sex", 99);
+		answers.put("underPhysician", true);
 		try {
 			analyzerClient.getSurvey().postAnswers(invalidIdentifier, answers, null);
 		} catch (Exception e) {
@@ -232,10 +232,10 @@ public class SurveyControllerTest {
 	@Test
 	public void testUpdateAnswers() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics4");
+		requestDTO.setStepRef("demographicsDetails");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
 		answers.put("age", 99);
-		answers.put("demographics1", false);
+		answers.put("underPhysician", false);
 		answers.put("height", "182.88");
 		answers.put("occupation", "unemployed");
 		answers.put("sex", "male");
@@ -249,9 +249,9 @@ public class SurveyControllerTest {
 	@Test
 	public void testUpdateAnswers_InvalidInput() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics4");
+		requestDTO.setStepRef("underPhysician");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<>();
-		answers.put("age", 99);
+		answers.put("underPhysician", true);
 		requestDTO.setAnswers(answers);
 		try {
 			analyzerClient.getSurvey().updateAnswers(invalidIdentifier, requestDTO, null);
@@ -277,10 +277,10 @@ public class SurveyControllerTest {
 	@Test
 	public void testUpdateSurveyState() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics4");
+		requestDTO.setStepRef("demographicsDetails");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
 		answers.put("age", 99);
-		answers.put("demographics1", false);
+		answers.put("underPhysician", false);
 		answers.put("height", "182.88");
 		answers.put("occupation", "unemployed");
 		answers.put("sex", "male");
@@ -294,9 +294,9 @@ public class SurveyControllerTest {
 	@Test
 	public void testUpdateSurveyState_InvalidInput() throws Throwable {
 		UpdateSurveyStateRequestDTO requestDTO = new UpdateSurveyStateRequestDTO();
-		requestDTO.setStepRef("demographics4");
+		requestDTO.setStepRef("demographicsDetails");
 		LinkedHashMap<String, Object> answers = new LinkedHashMap<String, Object>();
-		answers.put("age", 99);
+		answers.put("underPhysician", true);
 		requestDTO.setAnswers(answers);
 		try {
 			analyzerClient.getSurvey().updateSurveyState(invalidIdentifier, null, requestDTO);

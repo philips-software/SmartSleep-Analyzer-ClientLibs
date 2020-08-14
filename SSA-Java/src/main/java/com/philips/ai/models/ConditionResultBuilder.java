@@ -73,13 +73,13 @@ public class ConditionResultBuilder {
         return this;
     }
     
-    public ConditionResultBuilder ctaHeader(String ctaHeader) {
-    	conditionResult.setCTAHeader(ctaHeader);
+    public ConditionResultBuilder recommendedProductIdentifiers(List<String> recommendedProductIdentifiers) {
+    	conditionResult.setRecommendedProductIdentifiers(recommendedProductIdentifiers);
         return this;
     }
     
-    public ConditionResultBuilder ctaDescription(String ctaDescription) {
-    	conditionResult.setCTADescription(ctaDescription);
+    public ConditionResultBuilder relatedProductIdentifiers(List<String> relatedProductIdentifiers) {
+    	conditionResult.setRelatedProductIdentifiers(relatedProductIdentifiers);
         return this;
     }
 

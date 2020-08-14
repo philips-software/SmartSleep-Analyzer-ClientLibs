@@ -106,7 +106,7 @@ public class ScoringControllerTest {
 			senseIdList.add(senseDTO.getId());
 		}
 		Assert.assertTrue(senseIdList.contains("breathingStopped"));
-		Assert.assertEquals(100, senseIdList.size());
+		Assert.assertEquals(99, senseIdList.size());
 
 	}
 
@@ -123,7 +123,7 @@ public class ScoringControllerTest {
 			senseIdList.add(senseDTO.getId());
 		}
 		Assert.assertTrue(senseIdList.contains("bmi"));
-		Assert.assertEquals(116, senseIdList.size());
+		Assert.assertEquals(115, senseIdList.size());
 
 	}
 
@@ -395,8 +395,8 @@ public class ScoringControllerTest {
 			}
 			outputSenseIds.add(senseDTO.getId());
 		}
-		Assert.assertEquals(2, outputSenseIds.size());
-		Assert.assertEquals(true, outputSenseIds.contains("insomnia"));
+		Assert.assertEquals(1, outputSenseIds.size());
+		Assert.assertEquals(true, outputSenseIds.contains("snoring"));
 
 	}
 
@@ -445,7 +445,6 @@ public class ScoringControllerTest {
 		dict.put("problemSleepiness", 0);
 		dict.put("problemSnoring", 10);
 		dict.put("problemPartnerSnoring", 0);
-		dict.put("problemOther", "");
 
 		dict.put("snoringBotherOthers", "yes");
 		dict.put("breathingStopped", "no");
@@ -466,7 +465,7 @@ public class ScoringControllerTest {
 		dict.put("ess7", "dozeslight");
 		dict.put("ess8", "dozeslight");
 
-		dict.put("sleepInitiation1", "difficultsomewhat");
+		dict.put("sleepInitiationDifficulty", "difficultsomewhat");
 		dict.put("accidentRisk", true);
 		dict.put("alcoholFrequency", "n2to4permonth");
 		dict.put("caffeinatedDrinksPerDay", "nlessThan1");

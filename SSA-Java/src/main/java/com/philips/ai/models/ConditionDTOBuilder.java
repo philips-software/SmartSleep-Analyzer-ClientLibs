@@ -123,23 +123,23 @@ public class ConditionDTOBuilder {
     }
     
     /**
-     * The ctaHeader of the condition.
+     * The recommended product identifiers associated with the condition.
      */
-    public ConditionDTOBuilder ctaHeader(String ctaHeader) {
-        conditionDTO.setCTAHeader(ctaHeader);
+    public ConditionDTOBuilder recommendedProductIdentifiers(List<String> recommendedProductIdentifiers) {
+        conditionDTO.setRecommendedProductIdentifiers(recommendedProductIdentifiers);
         return this;
     }
     
     /**
-     * The ctaDescription of the condition.
+     * The related product identifiers associated with the condition.
      */
-    public ConditionDTOBuilder ctaDescription(String ctaDescription) {
-        conditionDTO.setCTADescription(ctaDescription);
+    public ConditionDTOBuilder relatedProductIdentifiers(List<String> relatedProductIdentifiers) {
+        conditionDTO.setRelatedProductIdentifiers(relatedProductIdentifiers);
         return this;
     }
 
     /**
-     * The risk header of the conditon.
+     * The risk header of the condition.
      */
     public ConditionDTOBuilder risksHeader(String risksHeader) {
         conditionDTO.setRisksHeader(risksHeader);
